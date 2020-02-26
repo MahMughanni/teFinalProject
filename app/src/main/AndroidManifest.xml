@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activites.HomeActivity"
+        <activity android:name=".FadiHaniaActivity"></activity>
+        <activity
+            android:name=".Activites.HomeActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,22 +19,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
         <activity
             android:name=".Activites.LoginActvivty"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
-
-
         <activity
             android:name=".Activites.SplashActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar">
-
-
-
-        </activity>
-
-
+            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
     </application>
 
 </manifest>
