@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">بداية المستقبل</string>
+    <string name="_splash_activity_txt">Welcome</string>
+    <string name="_login_activity_ed_hint_idNum">ID Number</string>
+    <string name="_login_activity_ed_hint_password">Password</string>
+    <string name="_login_activity_btn_txt_login">Login</string>
+    <string name="_login_activity_txt_forget">forget Password ?</string>
+
+
+    <string name="btn_nav_ic_title_home">Home</string>
+    <string name="btn_nav_ic_title_camer">Camera</string>
+    <string name="btn_nav_ic_title_travel">Travel</string>
+    <string name="btn_nav_ic_title_notes">Notes</string>
+    <string name="btn_nav_ic_title_fin_record">Financial Record</string>
+
+
+    <string name="navigation_drawer_title_Home">Home</string>
+    <string name="navigation_drawer_title_Settings">Setting</string>
+    <string name="navigation_drawer_title_AboutUs">About Us</string>
+    <string name="navigation_drawer_title_Logout">Log out</string>
+    <string name="navigation_drawer_title_Other">Other</string>
+
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>

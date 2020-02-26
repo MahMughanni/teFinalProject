@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">بداية المستقبل</string>
+
+    <string name="_splash_activity_txt">مرحبا</string>
+    <string name="_login_activity_ed_hint_idNum">رقم الهوية</string>
+    <string name="_login_activity_ed_hint_password">كلمة المرور</string>
+    <string name="_login_activity_btn_txt_login">دخول</string>
+    <string name="_login_activity_txt_forget">نسيت كلمة المرور ؟ </string>
+
+    <string name="btn_nav_ic_title_home">الرئيسية</string>
+    <string name="btn_nav_ic_title_camer">الكاميرا</string>
+    <string name="btn_nav_ic_title_travel">الرحلات</string>
+    <string name="btn_nav_ic_title_notes">الملاحظات</string>
+    <string name="btn_nav_ic_title_fin_record">السجل المالي</string>
+
+
+    <string name="navigation_drawer_title_Home">الرئيسية</string>
+    <string name="navigation_drawer_title_Settings">الاعدادات</string>
+    <string name="navigation_drawer_title_AboutUs">من نحن</string>
+    <string name="navigation_drawer_title_Logout">خروج</string>
+    <string name="navigation_drawer_title_Other">اخرى</string>
+
+
+
+
+
+</resources>

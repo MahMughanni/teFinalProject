@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start"
+    tools:context=".Activites.HomeActivity">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/homeAct_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimary"
+            android:elevation="4dp"
+            android:layout_alignParentTop="true"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" >
+
+            <ImageView
+                android:layout_width="55dp"
+                android:layout_height="45dp"
+                android:layout_gravity="left|center_vertical"
+                android:layout_marginLeft="16dp"
+                android:src="@mipmap/ic_launcher_round"
+                />
+
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <FrameLayout
+            android:id="@+id/fragment_container"
+            android:layout_width="match_parent"
+            android:layout_below="@id/homeAct_toolbar"
+            android:layout_above="@id/home_act_bottom_nav"
+            android:layout_height="match_parent" />
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/home_act_bottom_nav"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="#F9FCFF"
+            android:padding="@dimen/home_act_btnNav_icon_padding"
+            app:itemTextColor="#000"
+            app:menu="@menu/bottom_navigation" />
+
+
+    </RelativeLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_View"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        app:itemTextAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:layout_gravity="start"
+        app:headerLayout="@layout/navigation_heder"
+        app:menu="@menu/drawer_menu" />
+
+</androidx.drawerlayout.widget.DrawerLayout>
+
