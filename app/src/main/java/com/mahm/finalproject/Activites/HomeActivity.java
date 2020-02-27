@@ -23,6 +23,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import com.mahm.finalproject.Fragments.CameraFragment;
 import com.mahm.finalproject.Fragments.FinancialFragment;
+import com.mahm.finalproject.Fragments.HolidaysFragment;
 import com.mahm.finalproject.Fragments.HomeFragment;
 import com.mahm.finalproject.Fragments.Nav_AboutUsFragment;
 import com.mahm.finalproject.Fragments.Nav_SettingFragment;
@@ -72,7 +73,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
     }
 
-
+    //Initialization "FindView"
     void init() {
 
         mHomeActBottomNav = findViewById(R.id.home_act_bottom_nav);
@@ -97,8 +98,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                             selectedFrag = new HomeFragment();
                             break;
 
-                        case R.id.menu_btn_nav_camer:
-                            selectedFrag = new CameraFragment();
+                        case R.id.menu_btn_nav_holidays:
+                            selectedFrag = new HolidaysFragment();
                             break;
 
                         case R.id.menu_btn_nav_travel:
@@ -133,6 +134,13 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                                 new HomeFragment()).commit();
                 break;
 
+            case R.id.drawer_ic_camere:
+                getSupportFragmentManager().beginTransaction()
+                        .setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_right)
+                        .replace(R.id.fragment_container,
+                                new CameraFragment()).commit();
+                break;
+
             case R.id.drawer_ic_setting:
                 getSupportFragmentManager().beginTransaction()
                         .setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_right)
@@ -159,6 +167,9 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
+
+
+    // menu for 3 main itme in home activity
 
 //    @Override
 //    public boolean onCreateOptionsMenu(Menu menu) {

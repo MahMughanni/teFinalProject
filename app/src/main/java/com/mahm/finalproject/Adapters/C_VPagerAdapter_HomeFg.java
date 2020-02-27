@@ -10,7 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 
-import com.mahm.finalproject.Model.ActivitiesData;
+import com.mahm.finalproject.Model.Item_HomeFg;
 import com.mahm.finalproject.R;
 
 import java.util.List;
@@ -18,12 +18,12 @@ import java.util.List;
 public class CustomAdapter_HomeFg_ViewPager extends PagerAdapter {
 
 
-    private List<ActivitiesData> data;
+    private List<Item_HomeFg> data;
     private Context mCntext;
     private LayoutInflater layoutInflater;
 
 
-    public CustomAdapter_HomeFg_ViewPager(List<ActivitiesData> data, Context mCntext) {
+    public CustomAdapter_HomeFg_ViewPager(List<Item_HomeFg> data, Context mCntext) {
         this.data = data;
         this.mCntext = mCntext;
     }

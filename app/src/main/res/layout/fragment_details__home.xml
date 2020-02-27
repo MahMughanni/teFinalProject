@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragments.Details_HomeFragment">
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:background="@drawable/background"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/fg_details_tv_Title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/rawy_regular"
+                    android:gravity="start"
+                    android:maxLines="2"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
+                    android:text="Title Title Title Title Title Title Title TitleTitleTitleTitleTitleTitle"
+                    android:textColor="#fff"
+                    android:textSize="28sp"
+                    android:textStyle="bold|italic" />
+
+            </LinearLayout>
+
+
+            <ImageView
+                android:id="@+id/fg_details_img"
+                android:layout_width="match_parent"
+                android:layout_height="220dp"
+                android:src="@drawable/ic_software_enginner_1" />
+
+            <MultiAutoCompleteTextView
+                android:id="@+id/fg_details_mTv_description"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/ge_ss_unique_light"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:text="
+                12qwadasdasdasdadsa
+           dasdasdasdadad12qwadasdasdasdadsadasd
+           12qwadasdasdasdadsadasdasdasdadad
+           asdasdadad12qwadasdasdasdadsadasdasdasdad
+         2qwadasdasdasdadsadasdasdasdadad
+          ad12qwadasdasdasdadsadasdasdasdadad12qwa
+          asdasdasdadsadasdasdasdadad12qwadasdasdasdad
+          sadasdasdasdad
+          12qwadasdasdasdadsadasdasdasdadad
+          12qwadasdasdasdadsadasdasdasdadad
+          12qwadasdasdasdadsadasdasdasdadad
+          12qwadasdasdasdadsadasdasdasdadad
+          12qwadasdasdasdadsadasdasdasdadad
+           ad12qwadasdasdasdadsadasdasdasdadad   "
+                android:textColor="#000"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</FrameLayout>
