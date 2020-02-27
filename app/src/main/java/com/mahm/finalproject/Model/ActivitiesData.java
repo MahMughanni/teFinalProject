@@ -1,15 +1,19 @@
 package com.mahm.finalproject.Model;
 
-public class Item_HomeFg {
+public class ActivitiesData {
 
      private int img;
      private String title ;
      private String description ;
 
-    public Item_HomeFg(int img, String title, String description) {
+    public ActivitiesData(int img, String title, String description) {
         this.img = img;
         this.title = title;
         this.description = description;
+    }
+
+    public ActivitiesData(int img) {
+        this.img = img;
     }
 
     public int getImg() {

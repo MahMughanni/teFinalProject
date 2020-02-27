@@ -10,37 +10,32 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-
-        <androidx.viewpager.widget.ViewPager
+        <ViewFlipper
+            android:id="@+id/viewFlipper"
             android:layout_width="match_parent"
             android:layout_height="272dp"
-            android:overScrollMode="ifContentScrolls"
             android:clipToPadding="false"
             android:foregroundGravity="center"
-            android:id="@+id/viewPager">
+            android:overScrollMode="ifContentScrolls" />
 
-        </androidx.viewpager.widget.ViewPager>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_marginRight="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="1dp"
+            android:layout_marginRight="8dp"
             android:layout_marginBottom="1dp"
             android:background="#6B000000" />
 
-        <ListView
-            android:layout_marginTop="8dp"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/homeFg_list_item"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/homeFg_list_item"
-            />
-
+            android:layout_marginTop="8dp" />
 
 
     </LinearLayout>
-
 
 
 </FrameLayout>
