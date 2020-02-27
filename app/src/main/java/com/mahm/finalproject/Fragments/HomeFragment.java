@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
 
+import com.mahm.finalproject.Adapters.ActivitiesAdapter;
 import com.mahm.finalproject.Adapters.C_RvAdapter_HomeFg_ListNews;
 import com.mahm.finalproject.Model.ActivitiesData;
 import com.mahm.finalproject.R;
@@ -28,18 +29,13 @@ import java.util.Timer;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class HomeFragment extends Fragment implements C_RvAdapter_HomeFg_ListNews.OnClickItemListener {
+public class HomeFragment extends Fragment {
 
     private View view;
     private ViewFlipper viewFlipper;
-    //    private C_VPagerAdapter_HomeFg viewpager_adapter;
-    private C_RvAdapter_HomeFg_ListNews recViwe_Adapter;
-    private List<ActivitiesData> data;
-    private RecyclerView mHome_rView;
-
-    private Timer timer;
-    private int page = 0;
-
+    private ActivitiesAdapter adapter;
+    private ArrayList<ActivitiesData> data;
+    private RecyclerView recyclerView;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -66,10 +62,11 @@ public class HomeFragment extends Fragment implements C_RvAdapter_HomeFg_ListNew
         data.add(new ActivitiesData(R.drawable.splash_img, "العنوان الرئيسي 7 ", "تفصيل بسيط عن النشاط"));
 
 
-        recViwe_Adapter = new C_RvAdapter_HomeFg_ListNews(getContext(), data, this);
-        mHome_rView.setLayoutManager(new LinearLayoutManager(getContext()));
-        mHome_rView.setHasFixedSize(true);
-        mHome_rView.setAdapter(recViwe_Adapter);
+        adapter = new ActivitiesAdapter(data, getActivity());
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        recyclerView.setHasFixedSize(true);
+
 
         int[] images = {R.drawable.splash_img, R.drawable.login_img_family, R.drawable.login_img0_family};
 
@@ -83,7 +80,7 @@ public class HomeFragment extends Fragment implements C_RvAdapter_HomeFg_ListNew
 
     //Initialization "FindView"
     void init() {
-        mHome_rView = view.findViewById(R.id.homeFg_list_item);
+        recyclerView = view.findViewById(R.id.homeFg_list_item);
         viewFlipper = view.findViewById(R.id.viewFlipper);
 
     }
@@ -104,47 +101,6 @@ public class HomeFragment extends Fragment implements C_RvAdapter_HomeFg_ListNew
 
 
     }
-
-
-    @Override
-    public void ClickItemListener(int position) {
-
-        getFragmentManager().beginTransaction()
-                .addToBackStack(null)
-                .setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_right)
-                .replace(R.id.fragment_container,
-                        new Details_HomeFragment()).commit();
-    }
-
-
-    //تنقل تلقائي
-
-//    private void setupAutoPager() {
-//        final Handler handler = new Handler();
-//
-//        final Runnable update = new Runnable() {
-//            public void run() {
-//
-//                viewPager.setCurrentItem(page, true);
-//                if (page == Integer.MAX_VALUE) {
-//                    page = 0;
-//                } else {
-//                    ++page;
-//                }
-//            }
-//        };
-//
-//        timer = new Timer();
-//        timer.schedule(new TimerTask() {
-//
-//            @Override
-//            public void run() {
-//                handler.post(update);
-//            }
-//        }, 500, 2500);
-//
-//
-//    }
 
 
 }

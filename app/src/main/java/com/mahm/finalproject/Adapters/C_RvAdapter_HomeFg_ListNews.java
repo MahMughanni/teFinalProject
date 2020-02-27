@@ -17,6 +17,7 @@ import com.mahm.finalproject.R;
 import java.util.List;
 
 public class C_RvAdapter_HomeFg_ListNews extends RecyclerView.Adapter<C_RvAdapter_HomeFg_ListNews.mViewHolder> {
+
     private Context mContext;
     private List<ActivitiesData> data;
     OnClickItemListener mOnClickItemListener;
