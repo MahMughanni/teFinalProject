@@ -11,15 +11,13 @@
         android:orientation="vertical">
 
 
-        <androidx.viewpager.widget.ViewPager
+        <ViewFlipper
             android:layout_width="match_parent"
             android:layout_height="272dp"
             android:overScrollMode="ifContentScrolls"
             android:clipToPadding="false"
             android:foregroundGravity="center"
-            android:id="@+id/viewPager">
-
-        </androidx.viewpager.widget.ViewPager>
+            android:id="@+id/viewFlipper"/>
 
         <LinearLayout
             android:layout_width="match_parent"

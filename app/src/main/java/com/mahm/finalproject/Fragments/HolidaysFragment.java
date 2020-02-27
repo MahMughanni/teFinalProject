@@ -2,22 +2,21 @@ package com.mahm.finalproject.Fragments;
 
 
 import android.os.Bundle;
-import android.telephony.mbms.MbmsErrors;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CalendarView;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.applandeo.materialcalendarview.CalendarView;
+
 import com.applandeo.materialcalendarview.EventDay;
 import com.applandeo.materialcalendarview.listeners.OnDayClickListener;
+import com.google.android.material.card.MaterialCardView;
 import com.mahm.finalproject.Adapters.C_RvAdapter_HolidaysFg;
-import com.mahm.finalproject.Adapters.C_RvAdapter_HomeFg_ListNews;
 import com.mahm.finalproject.Model.Item_HolidaysFg;
-import com.mahm.finalproject.Model.Item_HomeFg;
 import com.mahm.finalproject.R;
 
 import java.util.ArrayList;
@@ -29,7 +28,7 @@ import java.util.List;
 public class HolidaysFragment extends Fragment {
 
     private View view;
-    private CalendarView mCalendarView;
+    private com.applandeo.materialcalendarview.CalendarView mCalendarView;
     private RecyclerView mFragRecView;
     private List<Item_HolidaysFg> data;
     private C_RvAdapter_HolidaysFg recViwe_Adapter;

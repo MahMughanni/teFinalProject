@@ -10,24 +10,25 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.mahm.finalproject.Model.Item_HomeFg;
+import com.mahm.finalproject.Model.ActivitiesData;
+
 import com.mahm.finalproject.R;
 
 import java.util.List;
 
 public class C_RvAdapter_HomeFg_ListNews extends RecyclerView.Adapter<C_RvAdapter_HomeFg_ListNews.mViewHolder> {
     private Context mContext;
-    private List<Item_HomeFg> data;
+    private List<ActivitiesData> data;
     OnClickItemListener mOnClickItemListener;
 
 
-    public C_RvAdapter_HomeFg_ListNews(Context mContext, List<Item_HomeFg> data, OnClickItemListener mOnClickItemListener) {
+    public C_RvAdapter_HomeFg_ListNews(Context mContext, List<ActivitiesData> data, OnClickItemListener mOnClickItemListener) {
         this.mContext = mContext;
         this.data = data;
         this.mOnClickItemListener = mOnClickItemListener;
     }
 
-    public C_RvAdapter_HomeFg_ListNews(Context mContext, List<Item_HomeFg> data) {
+    public C_RvAdapter_HomeFg_ListNews(Context mContext, List<ActivitiesData> data) {
         this.mContext = mContext;
         this.data = data;
     }
@@ -36,7 +37,7 @@ public class C_RvAdapter_HomeFg_ListNews extends RecyclerView.Adapter<C_RvAdapte
     @Override
     public mViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(mContext)
-                .inflate(R.layout.homefg_item_list, parent, false);
+                .inflate(R.layout.custom_activities_desgin, parent, false);
 
         return new mViewHolder(view, mOnClickItemListener);
     }

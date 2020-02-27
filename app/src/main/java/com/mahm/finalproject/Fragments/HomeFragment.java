@@ -12,11 +12,12 @@ import androidx.viewpager.widget.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.Toast;
+import android.widget.ViewFlipper;
 
 import com.mahm.finalproject.Adapters.C_RvAdapter_HomeFg_ListNews;
-import com.mahm.finalproject.Adapters.C_VPagerAdapter_HomeFg;
-import com.mahm.finalproject.Model.Item_HomeFg;
+import com.mahm.finalproject.Model.ActivitiesData;
 import com.mahm.finalproject.R;
 
 import java.util.ArrayList;
@@ -30,10 +31,10 @@ import java.util.Timer;
 public class HomeFragment extends Fragment implements C_RvAdapter_HomeFg_ListNews.OnClickItemListener {
 
     private View view;
-    private ViewPager viewPager;
-    private C_VPagerAdapter_HomeFg viewpager_adapter;
+    private ViewFlipper viewFlipper;
+    //    private C_VPagerAdapter_HomeFg viewpager_adapter;
     private C_RvAdapter_HomeFg_ListNews recViwe_Adapter;
-    private List<Item_HomeFg> data;
+    private List<ActivitiesData> data;
     private RecyclerView mHome_rView;
 
     private Timer timer;
@@ -55,21 +56,14 @@ public class HomeFragment extends Fragment implements C_RvAdapter_HomeFg_ListNew
         data = new ArrayList<>();
 
 
-        data.add(new Item_HomeFg(R.drawable.login_img0_family, "العنوان الرئيسي  ", "تفصيل بسيط عن النشاط"));
-        data.add(new Item_HomeFg(R.drawable.login_img_family, "العنوان الرئيسي 1  ", "تفصيل بسيط عن النشاط"));
-        data.add(new Item_HomeFg(R.drawable.splash_img, "العنوان الرئيسي 2", "تفصيل بسيط عن النشاط"));
-        data.add(new Item_HomeFg(R.drawable.login_img0_family, "العنوان الرئيسي 3  ", "تفصيل بسيط عن النشاط"));
-        data.add(new Item_HomeFg(R.drawable.splash_img, "العنوان الرئيسي 4 ", "تفصيل بسيط عن النشاط"));
-        data.add(new Item_HomeFg(R.drawable.splash_img, "العنوان الرئيسي 5 ", "تفصيل بسيط عن النشاط"));
-        data.add(new Item_HomeFg(R.drawable.splash_img, "العنوان الرئيسي 6 ", "تفصيل بسيط عن النشاط"));
-        data.add(new Item_HomeFg(R.drawable.splash_img, "العنوان الرئيسي 7 ", "تفصيل بسيط عن النشاط"));
-
-
-        viewpager_adapter = new C_VPagerAdapter_HomeFg(data, getContext());
-        viewPager.setAdapter(viewpager_adapter);
-//        setupAutoPager();
-
-        viewPager.setPadding(32, 0, 32, 0);
+        data.add(new ActivitiesData(R.drawable.login_img0_family, "العنوان الرئيسي  ", "تفصيل بسيط عن النشاط"));
+        data.add(new ActivitiesData(R.drawable.login_img_family, "العنوان الرئيسي 1  ", "تفصيل بسيط عن النشاط"));
+        data.add(new ActivitiesData(R.drawable.splash_img, "العنوان الرئيسي 2", "تفصيل بسيط عن النشاط"));
+        data.add(new ActivitiesData(R.drawable.login_img0_family, "العنوان الرئيسي 3  ", "تفصيل بسيط عن النشاط"));
+        data.add(new ActivitiesData(R.drawable.splash_img, "العنوان الرئيسي 4 ", "تفصيل بسيط عن النشاط"));
+        data.add(new ActivitiesData(R.drawable.splash_img, "العنوان الرئيسي 5 ", "تفصيل بسيط عن النشاط"));
+        data.add(new ActivitiesData(R.drawable.splash_img, "العنوان الرئيسي 6 ", "تفصيل بسيط عن النشاط"));
+        data.add(new ActivitiesData(R.drawable.splash_img, "العنوان الرئيسي 7 ", "تفصيل بسيط عن النشاط"));
 
 
         recViwe_Adapter = new C_RvAdapter_HomeFg_ListNews(getContext(), data, this);
@@ -77,6 +71,12 @@ public class HomeFragment extends Fragment implements C_RvAdapter_HomeFg_ListNew
         mHome_rView.setHasFixedSize(true);
         mHome_rView.setAdapter(recViwe_Adapter);
 
+        int[] images = {R.drawable.splash_img, R.drawable.login_img_family, R.drawable.login_img0_family};
+
+        for (int image :
+                images) {
+            slideImages(image);
+        }
 
         return view;
     }
@@ -84,7 +84,24 @@ public class HomeFragment extends Fragment implements C_RvAdapter_HomeFg_ListNew
     //Initialization "FindView"
     void init() {
         mHome_rView = view.findViewById(R.id.homeFg_list_item);
-        viewPager = view.findViewById(R.id.viewPager);
+        viewFlipper = view.findViewById(R.id.viewFlipper);
+
+    }
+
+    private void slideImages(int image) {
+
+        ImageView imageView = new ImageView(getActivity());
+
+        imageView.setBackgroundResource(image);
+
+        viewFlipper.addView(imageView);
+        viewFlipper.setFlipInterval(4000);
+        viewFlipper.setAutoStart(true);
+
+        // animation
+        viewFlipper.setInAnimation(getActivity(), android.R.anim.slide_in_left);
+        viewFlipper.setOutAnimation(getActivity(), android.R.anim.slide_out_right);
+
 
     }
 
