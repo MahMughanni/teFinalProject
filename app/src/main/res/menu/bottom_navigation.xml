@@ -1,26 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:id="@+id/menu_btn_nav_home"
+    <item
+        android:id="@+id/menu_btn_nav_home"
         android:icon="@drawable/ic_nav_home"
-        android:title="@string/btn_nav_ic_title_home"
-        />
-    <item android:id="@+id/menu_btn_nav_camer"
-        android:icon="@drawable/ic_nav_camera"
-        android:title="@string/btn_nav_ic_title_camer"
-        />
-    <item android:id="@+id/menu_btn_nav_travel"
-        android:icon="@drawable/ic_nav_travel"
-        android:title="@string/btn_nav_ic_title_travel"
-        />
-
-    <item android:id="@+id/menu_btn_nav_notes"
+        android:title="@string/btn_nav_ic_title_home" />
+    <item
+        android:id="@+id/menu_btn_nav_notes"
         android:icon="@drawable/ic_nav_notes"
-        android:title="@string/btn_nav_ic_title_notes"
-        />
+        android:title="@string/btn_nav_ic_title_notes" />
+    <item
+        android:id="@+id/menu_btn_nav_holidays"
+        android:icon="@drawable/ic_calender"
+        android:title="@string/btn_nav_ic_title_Holidays" />
 
-    <item android:id="@+id/menu_btn_nav_fin_record"
+    <item
+        android:id="@+id/menu_btn_nav_travel"
+        android:icon="@drawable/ic_nav_travel"
+        android:title="@string/btn_nav_ic_title_travel" />
+
+
+    <item
+        android:id="@+id/menu_btn_nav_fin_record"
         android:icon="@drawable/ic_nav_money"
-        android:title="@string/btn_nav_ic_title_fin_record"
-        />
+        android:title="@string/btn_nav_ic_title_fin_record" />
+
+
 </menu>

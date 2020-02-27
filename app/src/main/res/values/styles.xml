@@ -9,10 +9,10 @@
     </style>
 
     <style name="AppTheme.NoActionBar">
-        <item name="android:textSize">20sp</item>
+        <item name="android:textSize">18sp</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-        <item name="android:fontFamily">@font/rawy_regular</item>
+        <item name="android:fontFamily">@font/stc</item>
 
     </style>
 </resources>

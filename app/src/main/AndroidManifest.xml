@@ -8,24 +8,33 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity
-            android:name=".Activites.HomeActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+        android:theme="@style/AppTheme.NoActionBar">
 
-        </activity>
-        <activity
-            android:name=".Activites.LoginActvivty"
-            android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".Activites.SplashActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar">
+
+        </activity>
+
+
+        <activity
+            android:name=".Activites.LoginActvivty"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+
+
+        <activity
+            android:name=".Activites.HomeActivity"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
+
+
+
     </application>
 
 </manifest>

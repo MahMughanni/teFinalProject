@@ -4,23 +4,28 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.viewpager.widget.PagerAdapter;
 
 import com.mahm.finalproject.Model.Item_HomeFg;
 import com.mahm.finalproject.R;
 
 import java.util.List;
 
-public class CustomAdapter_HomeFg_ListNews extends BaseAdapter {
+public class C_VPagerAdapter_HomeFg extends PagerAdapter {
 
-    List<Item_HomeFg> data;
-    Context mContext;
 
-    public CustomAdapter_HomeFg_ListNews(List<Item_HomeFg> data, Context mContext) {
+    private List<Item_HomeFg> data;
+    private Context mCntext;
+    private LayoutInflater layoutInflater;
+
+
+    public C_VPagerAdapter_HomeFg(List<Item_HomeFg> data, Context mCntext) {
         this.data = data;
-        this.mContext = mContext;
+        this.mCntext = mCntext;
     }
 
     @Override
@@ -29,19 +34,16 @@ public class CustomAdapter_HomeFg_ListNews extends BaseAdapter {
     }
 
     @Override
-    public Object getItem(int position) {
-        return data.get(position);
+    public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
+        return view.equals(object);
     }
 
+    @NonNull
     @Override
-    public long getItemId(int position) {
-        return 0;
-    }
+    public Object instantiateItem(@NonNull ViewGroup container, int position) {
+        layoutInflater = LayoutInflater.from(mCntext);
 
-    @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-
-        View view = LayoutInflater.from(mContext).inflate(R.layout.homefg_item_list , null,false);
+        View view = layoutInflater.inflate(R.layout.homefg_item_vp_cardview, container, false);
         ImageView img_vp;
         TextView title, description;
 
@@ -53,6 +55,13 @@ public class CustomAdapter_HomeFg_ListNews extends BaseAdapter {
         title.setText(data.get(position).getTitle());
         description.setText(data.get(position).getDescription());
 
+        container.addView(view, 0);
+
         return view;
+    }
+
+    @Override
+    public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
+        container.removeView((View) object);
     }
 }
