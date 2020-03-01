@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CalendarView;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -14,8 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.applandeo.materialcalendarview.EventDay;
 import com.applandeo.materialcalendarview.listeners.OnDayClickListener;
-import com.google.android.material.card.MaterialCardView;
-import com.mahm.finalproject.Adapters.C_RvAdapter_HolidaysFg;
+import com.mahm.finalproject.Adapters.Custom_RvAdapter_HolidaysFg;
 import com.mahm.finalproject.Model.Item_HolidaysFg;
 import com.mahm.finalproject.R;
 
@@ -31,7 +29,7 @@ public class HolidaysFragment extends Fragment {
     private com.applandeo.materialcalendarview.CalendarView mCalendarView;
     private RecyclerView mFragRecView;
     private List<Item_HolidaysFg> data;
-    private C_RvAdapter_HolidaysFg recViwe_Adapter;
+    private Custom_RvAdapter_HolidaysFg recViwe_Adapter;
 
 
     public HolidaysFragment() {
@@ -65,7 +63,7 @@ public class HolidaysFragment extends Fragment {
             @Override
             public void onDayClick(EventDay eventDay) {
 
-                recViwe_Adapter = new C_RvAdapter_HolidaysFg(getContext(), data);
+                recViwe_Adapter = new Custom_RvAdapter_HolidaysFg(getContext(), data);
                 mFragRecView.setLayoutManager(new LinearLayoutManager(getContext()));
                 mFragRecView.setHasFixedSize(true);
                 mFragRecView.setAdapter(recViwe_Adapter);

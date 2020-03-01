@@ -10,9 +10,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.mahm.finalproject.Adapters.C_RvAdapter_HolidaysFg;
-import com.mahm.finalproject.Adapters.C_RvAdapter_HomeFg_ListNews;
-import com.mahm.finalproject.Adapters.C_RvAdapter_NoteFg;
+import com.mahm.finalproject.Adapters.Custom_RvAdapter_NoteFg;
 import com.mahm.finalproject.Model.Item_NoteFg;
 import com.mahm.finalproject.R;
 
@@ -27,7 +25,7 @@ public class NoteFragment extends Fragment {
     private View view;
     private RecyclerView mNotefgRecView;
     private List<Item_NoteFg> mData;
-    private C_RvAdapter_NoteFg recViwe_Adapter;
+    private Custom_RvAdapter_NoteFg recViwe_Adapter;
 
 
 
@@ -69,7 +67,7 @@ public class NoteFragment extends Fragment {
 
 
 
-        recViwe_Adapter = new C_RvAdapter_NoteFg(getContext(), mData);
+        recViwe_Adapter = new Custom_RvAdapter_NoteFg(getContext(), mData);
         mNotefgRecView.setLayoutManager(new LinearLayoutManager(getContext()));
         mNotefgRecView.setHasFixedSize(true);
         mNotefgRecView.setAdapter(recViwe_Adapter);

@@ -16,20 +16,20 @@ import com.mahm.finalproject.R;
 
 import java.util.List;
 
-public class C_RvAdapter_HomeFg_ListNews extends RecyclerView.Adapter<C_RvAdapter_HomeFg_ListNews.mViewHolder> {
+public class Custom_RvAdapter_HomeFg_News extends RecyclerView.Adapter<Custom_RvAdapter_HomeFg_News.mViewHolder> {
 
     private Context mContext;
     private List<ActivitiesData> data;
     OnClickItemListener mOnClickItemListener;
 
 
-    public C_RvAdapter_HomeFg_ListNews(Context mContext, List<ActivitiesData> data, OnClickItemListener mOnClickItemListener) {
+    public Custom_RvAdapter_HomeFg_News(Context mContext, List<ActivitiesData> data, OnClickItemListener mOnClickItemListener) {
         this.mContext = mContext;
         this.data = data;
         this.mOnClickItemListener = mOnClickItemListener;
     }
 
-    public C_RvAdapter_HomeFg_ListNews(Context mContext, List<ActivitiesData> data) {
+    public Custom_RvAdapter_HomeFg_News(Context mContext, List<ActivitiesData> data) {
         this.mContext = mContext;
         this.data = data;
     }
@@ -59,6 +59,7 @@ public class C_RvAdapter_HomeFg_ListNews extends RecyclerView.Adapter<C_RvAdapte
     }
 
     public class mViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+
         private TextView title, description;
         private ImageView img_vp;
         OnClickItemListener mOnClickItemListener;

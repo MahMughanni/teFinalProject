@@ -15,14 +15,14 @@ import com.mahm.finalproject.R;
 
 import java.util.List;
 
-public class C_RvAdapter_NoteFg extends RecyclerView.Adapter<C_RvAdapter_NoteFg.mViewHolder> {
+public class Custom_RvAdapter_NoteFg extends RecyclerView.Adapter<Custom_RvAdapter_NoteFg.mViewHolder> {
 
 
     private Context mContext;
     List<Item_NoteFg> data;
 
 
-    public C_RvAdapter_NoteFg(Context mContext, List<Item_NoteFg> data) {
+    public Custom_RvAdapter_NoteFg(Context mContext, List<Item_NoteFg> data) {
         this.mContext = mContext;
         this.data = data;
 

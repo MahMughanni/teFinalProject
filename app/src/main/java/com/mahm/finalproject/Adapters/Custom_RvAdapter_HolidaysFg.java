@@ -14,13 +14,13 @@ import com.mahm.finalproject.R;
 
 import java.util.List;
 
-public class C_RvAdapter_HolidaysFg extends RecyclerView.Adapter<C_RvAdapter_HolidaysFg.mViewHolder> {
+public class Custom_RvAdapter_HolidaysFg extends RecyclerView.Adapter<Custom_RvAdapter_HolidaysFg.mViewHolder> {
 
     private Context mContext;
     private List<Item_HolidaysFg> data;
 
 
-    public C_RvAdapter_HolidaysFg(Context mContext, List<Item_HolidaysFg> data) {
+    public Custom_RvAdapter_HolidaysFg(Context mContext, List<Item_HolidaysFg> data) {
         this.mContext = mContext;
         this.data = data;
     }

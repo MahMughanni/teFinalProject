@@ -4,36 +4,31 @@ package com.mahm.finalproject.Fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.viewpager.widget.ViewPager;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 import com.mahm.finalproject.Adapters.ActivitiesAdapter;
-import com.mahm.finalproject.Adapters.C_RvAdapter_HomeFg_ListNews;
+import com.mahm.finalproject.Adapters.Custom_RvAdapter_HomeFg_News;
 import com.mahm.finalproject.Model.ActivitiesData;
 import com.mahm.finalproject.R;
 
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Timer;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements Custom_RvAdapter_HomeFg_News.OnClickItemListener {
 
     private View view;
     private ViewFlipper viewFlipper;
     private ActivitiesAdapter adapter;
+    private Custom_RvAdapter_HomeFg_News adapter1;
     private ArrayList<ActivitiesData> data;
     private RecyclerView recyclerView;
 
@@ -62,8 +57,11 @@ public class HomeFragment extends Fragment {
         data.add(new ActivitiesData(R.drawable.splash_img, "العنوان الرئيسي 7 ", "تفصيل بسيط عن النشاط"));
 
 
-        adapter = new ActivitiesAdapter(data, getActivity());
-        recyclerView.setAdapter(adapter);
+//        adapter = new ActivitiesAdapter(data, getActivity());
+        adapter1 = new Custom_RvAdapter_HomeFg_News(getContext(), data,this);
+
+
+        recyclerView.setAdapter(adapter1);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setHasFixedSize(true);
 
@@ -103,4 +101,12 @@ public class HomeFragment extends Fragment {
     }
 
 
+    @Override
+    public void ClickItemListener(int position) {
+
+        getFragmentManager().beginTransaction()
+                .setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_right)
+                .replace(R.id.fragment_container,
+                        new Details_HomeFragment()).commit();
+    }
 }
