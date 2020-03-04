@@ -27,7 +27,7 @@ public class SplashActivity extends AppCompatActivity {
             public void run() {
                 mSplashActivityProgBar.setVisibility(View.GONE);
 
-                startActivity(new Intent(SplashActivity.this, LoginActvivty.class));
+                startActivity(new Intent(SplashActivity.this, LoginActivity.class));
                 finish();
 
             }

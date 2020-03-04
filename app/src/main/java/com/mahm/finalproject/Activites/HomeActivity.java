@@ -1,15 +1,9 @@
 package com.mahm.finalproject.Activites;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Gravity;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -25,8 +19,6 @@ import com.mahm.finalproject.Fragments.CameraFragment;
 import com.mahm.finalproject.Fragments.FinancialFragment;
 import com.mahm.finalproject.Fragments.HolidaysFragment;
 import com.mahm.finalproject.Fragments.HomeFragment;
-import com.mahm.finalproject.Fragments.Nav_AboutUsFragment;
-import com.mahm.finalproject.Fragments.Nav_SettingFragment;
 import com.mahm.finalproject.Fragments.NoteFragment;
 import com.mahm.finalproject.Fragments.TravelFragment;
 import com.mahm.finalproject.R;
@@ -86,8 +78,6 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     }
 
 
-
-
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =
             new BottomNavigationView.OnNavigationItemSelectedListener() {
                 @Override
@@ -142,21 +132,16 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 break;
 
             case R.id.drawer_ic_setting:
-                getSupportFragmentManager().beginTransaction()
-                        .setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_right)
-                        .replace(R.id.fragment_container,
-                                new Nav_SettingFragment()).commit();
+                startActivity(new Intent(getApplicationContext(), SettingActivity.class));
+
                 break;
 
             case R.id.drawer_ic_info_about:
-                getSupportFragmentManager().beginTransaction()
-                        .setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_right)
-                        .replace(R.id.fragment_container,
-                                new Nav_AboutUsFragment()).commit();
+                startActivity(new Intent(getApplicationContext(), AboutUsActivity.class));
                 break;
 
             case R.id.drawer_ic_logout:
-                startActivity(new Intent(getApplicationContext(), LoginActvivty.class));
+                startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                 finish();
                 break;
 
@@ -166,7 +151,6 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
         return true;
     }
-
 
 
     // menu for 3 main itme in home activity

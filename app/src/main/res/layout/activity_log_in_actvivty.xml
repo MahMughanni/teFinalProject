@@ -5,96 +5,102 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#fff"
-    tools:context=".Activites.LoginActvivty">
+    tools:context=".Activites.LoginActivity">
 
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="350dp"
-        android:layout_height="250dp"
-        android:layout_marginTop="32dp"
-        android:src="@drawable/login_img_family"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-    <EditText
-        android:id="@+id/login_act_ed_idNum"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginStart="32dp"
-        android:textStyle="bold"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
-        android:background="@drawable/login_ed_shape"
-        android:fontFamily="@font/ge_ss_unique_light"
-        android:hint="@string/_login_activity_ed_hint_idNum"
-        android:inputType="number"
-        android:paddingLeft="16dp"
-        android:textColorHint="#868383"
-        android:drawablePadding="8dp"
-        android:drawableStart="@drawable/ic_id_number"
-        android:paddingRight="16dp"
-        android:textColor="#000"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
-    <EditText
-        android:id="@+id/login_act_ed_password"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
-        android:gravity="right|center_vertical"
-        android:textStyle="bold"
-        android:textColorHint="#868383"
-        android:background="@drawable/login_ed_shape"
-        android:fontFamily="@font/ge_ss_unique_light"
-        android:hint="@string/_login_activity_ed_hint_password"
-        android:paddingLeft="16dp"
-        android:inputType="textPassword"
-        android:drawableStart="@drawable/ic_password_"
-        android:drawablePadding="8dp"
-        android:paddingRight="16dp"
-        android:textColor="#000"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_act_ed_idNum" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
 
-    <Button
-        android:id="@+id/login_act_btn_login"
-        android:layout_width="350dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="32dp"
-        android:background="@drawable/login_btn_shape"
-        android:fontFamily="@font/ge_ss_unique_light"
-        android:text="@string/_login_activity_btn_txt_login"
-        android:textColor="#fff"
-        android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_act_ed_password" />
-
-    <TextView
-        android:id="@+id/login_act_tv_forget_pass"
-        android:layout_width="wrap_content"
-        android:layout_height="46dp"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/ge_ss_unique_light"
-        android:gravity="center"
-        android:text="@string/_login_activity_txt_forget"
-        android:textColor="#525151"
-        android:textSize="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_act_btn_login" />
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="300dp"
+                android:layout_height="200dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="64dp"
+                android:src="@drawable/login_img_family" />
 
 
+            <EditText
+                android:id="@+id/login_act_ed_idNum"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="64dp"
+                android:layout_marginEnd="32dp"
+                android:background="@drawable/login_ed_shape"
+                android:drawableStart="@drawable/ic_card"
+                android:drawablePadding="8dp"
+                android:fontFamily="@font/ge_ss_unique_light"
+                android:hint="@string/_login_activity_ed_hint_idNum"
+                android:inputType="number"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:textAlignment="center"
+                android:textColor="#000"
+                android:textColorHint="#868383"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
+            <EditText
+                android:id="@+id/login_act_ed_password"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="32dp"
+                android:background="@drawable/login_ed_shape"
+                android:drawableStart="@drawable/ic_lock"
+                android:drawablePadding="8dp"
+                android:fontFamily="@font/ge_ss_unique_light"
+                android:hint="@string/_login_activity_ed_hint_password"
+                android:inputType="textPassword"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:textAlignment="center"
+                android:textColor="#000"
+                android:textColorHint="#868383"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/login_act_ed_idNum" />
+
+
+            <Button
+                android:id="@+id/login_act_btn_login"
+                android:layout_width="350dp"
+                android:layout_height="56dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/login_btn_shape"
+                android:fontFamily="@font/ge_ss_unique_light"
+                android:text="@string/_login_activity_btn_txt_login"
+                android:textColor="#fff"
+                android:textSize="26sp" />
+
+            <TextView
+                android:id="@+id/login_act_tv_forget_pass"
+                android:layout_width="wrap_content"
+                android:layout_height="46dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/ge_ss_unique_light"
+                android:gravity="center"
+                android:text="@string/_login_activity_txt_forget"
+                android:textColor="#4A4949"
+                android:textSize="16dp" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

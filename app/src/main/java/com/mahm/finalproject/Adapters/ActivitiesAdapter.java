@@ -11,10 +11,8 @@ import com.mahm.finalproject.Model.ActivitiesData;
 import com.mahm.finalproject.R;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class ActivitiesAdapter extends RecyclerView.Adapter<ActivitiesAdapter.ActivitiesHolder> {
@@ -31,7 +29,7 @@ public class ActivitiesAdapter extends RecyclerView.Adapter<ActivitiesAdapter.Ac
     @NonNull
     @Override
     public ActivitiesHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.custom_activities_desgin, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.homefg_item_rv, parent, false);
         ActivitiesHolder holder = new ActivitiesHolder(v);
         return holder;
     }

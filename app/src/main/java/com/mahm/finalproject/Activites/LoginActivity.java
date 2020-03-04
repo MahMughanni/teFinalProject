@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.mahm.finalproject.R;
 
-public class LoginActvivty extends AppCompatActivity implements View.OnClickListener {
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
     private EditText mLoginActEdIdNum;
     private EditText mLoginActEdPassword;
@@ -44,7 +44,7 @@ public class LoginActvivty extends AppCompatActivity implements View.OnClickList
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.login_act_btn_login:
-                startActivity(new Intent(LoginActvivty.this, HomeActivity.class));
+                startActivity(new Intent(LoginActivity.this, HomeActivity.class));
                 break;
 
             case R.id.login_act_tv_forget_pass:

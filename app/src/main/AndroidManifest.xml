@@ -18,13 +18,9 @@
 
 
         <activity
-            android:name=".Activites.LoginActvivty"
-            android:theme="@style/Theme.AppCompat.NoActionBar" />
+            android:name=".Activites.LoginActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
 
-
-        <activity
-            android:name=".Activites.HomeActivity"
-            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -33,6 +29,16 @@
 
         </activity>
 
+        <activity android:name=".Activites.SettingActivity" />
+        <activity android:name=".Activites.AboutUsActivity"/>
+        <activity android:name=".Activites.HomeActivity"/>
+
+        <activity
+            android:name=".Activites.ActivityDetails_HomeFg"
+            android:theme="@style/AppTheme.NoActionBar">
+
+
+        </activity>
 
 
     </application>

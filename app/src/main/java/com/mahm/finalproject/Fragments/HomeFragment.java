@@ -1,6 +1,7 @@
 package com.mahm.finalproject.Fragments;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -13,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ViewFlipper;
 
+import com.mahm.finalproject.Activites.ActivityDetails_HomeFg;
 import com.mahm.finalproject.Adapters.ActivitiesAdapter;
 import com.mahm.finalproject.Adapters.Custom_RvAdapter_HomeFg_News;
 import com.mahm.finalproject.Model.ActivitiesData;
@@ -58,7 +60,7 @@ public class HomeFragment extends Fragment implements Custom_RvAdapter_HomeFg_Ne
 
 
 //        adapter = new ActivitiesAdapter(data, getActivity());
-        adapter1 = new Custom_RvAdapter_HomeFg_News(getContext(), data,this);
+        adapter1 = new Custom_RvAdapter_HomeFg_News(getContext(), data, this);
 
 
         recyclerView.setAdapter(adapter1);
@@ -104,9 +106,7 @@ public class HomeFragment extends Fragment implements Custom_RvAdapter_HomeFg_Ne
     @Override
     public void ClickItemListener(int position) {
 
-        getFragmentManager().beginTransaction()
-                .setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_right)
-                .replace(R.id.fragment_container,
-                        new Details_HomeFragment()).commit();
+
+        startActivity(new Intent(getContext(), ActivityDetails_HomeFg.class));
     }
 }

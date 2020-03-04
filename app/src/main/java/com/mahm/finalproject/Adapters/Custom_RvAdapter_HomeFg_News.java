@@ -38,7 +38,7 @@ public class Custom_RvAdapter_HomeFg_News extends RecyclerView.Adapter<Custom_Rv
     @Override
     public mViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(mContext)
-                .inflate(R.layout.custom_activities_desgin, parent, false);
+                .inflate(R.layout.homefg_item_rv, parent, false);
 
         return new mViewHolder(view, mOnClickItemListener);
     }
