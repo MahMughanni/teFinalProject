@@ -91,7 +91,7 @@
                 android:fontFamily="@font/ge_ss_unique_light"
                 android:text="@string/_login_activity_btn_txt_login"
                 android:textColor="#fff"
-                android:textSize="26sp" />
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/login_act_tv_forget_pass"

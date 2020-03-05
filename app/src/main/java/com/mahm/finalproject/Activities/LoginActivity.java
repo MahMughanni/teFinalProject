@@ -45,8 +45,16 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.login_act_btn_login:
-                startActivity(new Intent(LoginActivity.this, HomeActivity.class));
-                finish();
+
+                String idNumber = mLoginActEdIdNum.getText().toString();
+                String password = mLoginActEdPassword.getText().toString();
+
+                if (!idNumber.isEmpty() && !password.isEmpty()) {
+                    startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+                    finish();
+                } else {
+                    Toast.makeText(this, "ID Number or Password Is Empty", Toast.LENGTH_SHORT).show();
+                }
                 break;
 
             case R.id.login_act_tv_forget_pass:
