@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="160dp"
         android:layout_margin="4dp"
-        app:cardCornerRadius="20dp"
         android:background="#E0DDDD"
-       >
+        app:cardCornerRadius="20dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -20,57 +19,92 @@
             <ImageView
                 android:id="@+id/item_img_Vp"
                 android:layout_width="110dp"
-                android:layout_marginRight="8dp"
                 android:layout_height="150dp"
-                android:layout_alignParentRight="true"
                 android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="8dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/login_img0_family"/>
-
+                android:src="@drawable/login_img0_family" />
 
             <TextView
                 android:id="@+id/item_Vp_tv_title"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
+                android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginStart="0dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_toLeftOf="@id/item_img_Vp"
-                android:layout_toEndOf="@+id/item_img_Vp"
+                android:layout_margin="10dp"
+                android:layout_marginEnd="-118dp"
+                android:layout_toStartOf="@+id/item_img_Vp"
                 android:fontFamily="@font/ge_ss_unique_light"
                 android:maxLines="1"
-                android:paddingRight="16dp"
-                android:text="العنوان الرئيسي "
+                android:text="العنوان الرئيسي"
                 android:textAlignment="center"
-                android:textColor="#000"
-                android:textSize="17sp"
+                android:textAllCaps="false"
+                android:textColor="#000000"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/item_Vp_description"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:layout_below="@id/item_Vp_tv_title"
-                android:layout_alignParentEnd="true"
-                android:layout_marginStart="0dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginTop="32dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginBottom="16dp"
-                android:layout_toLeftOf="@id/item_img_Vp"
-                android:layout_toEndOf="@+id/item_img_Vp"
+                android:layout_below="@+id/item_Vp_tv_title"
+                android:layout_alignParentStart="true"
+                android:layout_margin="10dp"
+                android:layout_toStartOf="@+id/item_img_Vp"
                 android:ellipsize="end"
+                android:fontFamily="@font/ge_ss_unique_light"
                 android:maxLines="2"
-                android:paddingRight="16dp"
-                android:text="تفصيل بسيط عن النشاط "
+                android:text="تفصيل بسيط عن النشاط"
                 android:textAlignment="center"
+                android:textAllCaps="false"
                 android:textColor="#4B4A4A"
-                android:textSize="15sp" />
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <!--            <TextView-->
+            <!--                android:id="@+id/item_Vp_tv_title"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="40dp"-->
+            <!--                android:layout_alignParentTop="true"-->
+            <!--                android:layout_marginStart="-378dp"-->
+            <!--                android:layout_marginLeft="8dp"-->
+            <!--                android:layout_marginTop="15dp"-->
+            <!--                android:layout_marginEnd="-119dp"-->
+            <!--                android:layout_marginRight="6dp"-->
+            <!--                android:layout_toStartOf="@+id/item_img_Vp"-->
+            <!--                android:layout_toLeftOf="@id/item_img_Vp"-->
+            <!--                android:layout_toEndOf="@+id/item_img_Vp"-->
+            <!--                android:fontFamily="@font/ge_ss_unique_light"-->
+            <!--                android:maxLines="1"-->
+            <!--                android:paddingRight="16dp"-->
+            <!--                android:text="العنوان الرئيسي "-->
+            <!--                android:textAlignment="center"-->
+            <!--                android:textColor="#000000"-->
+            <!--                android:textSize="17sp"-->
+            <!--                android:textStyle="bold" />-->
+
+            <!--            <TextView-->
+            <!--                android:id="@+id/item_Vp_description"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="40dp"-->
+            <!--                android:layout_below="@id/item_Vp_tv_title"-->
+            <!--                android:layout_alignParentEnd="true"-->
+            <!--                android:layout_marginStart="0dp"-->
+            <!--                android:layout_marginLeft="8dp"-->
+            <!--                android:layout_marginTop="32dp"-->
+            <!--                android:layout_marginEnd="8dp"-->
+            <!--                android:layout_marginRight="8dp"-->
+            <!--                android:layout_marginBottom="16dp"-->
+            <!--                android:layout_toLeftOf="@id/item_img_Vp"-->
+            <!--                android:layout_toEndOf="@+id/item_img_Vp"-->
+            <!--                android:ellipsize="end"-->
+            <!--                android:maxLines="2"-->
+            <!--                android:paddingRight="16dp"-->
+            <!--                android:text="تفصيل بسيط عن النشاط "-->
+            <!--                android:textAlignment="center"-->
+            <!--                android:textColor="#4B4A4A"-->
+            <!--                android:textSize="15sp" />-->
 
 
         </RelativeLayout>

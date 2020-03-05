@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 import com.mahm.finalproject.Activities.ActivityDetails_HomeFg;
@@ -59,7 +60,12 @@ public class HomeFragment extends Fragment implements Custom_RvAdapter_HomeFg_Ne
         data.add(new ActivitiesData(R.drawable.splash_img, "العنوان الرئيسي 7 ", "تفصيل بسيط عن النشاط"));
 
 
-        adapter1 = new Custom_RvAdapter_HomeFg_News(getActivity(), data, this);
+        adapter1 = new Custom_RvAdapter_HomeFg_News(getActivity(), data, new Custom_RvAdapter_HomeFg_News.OnClickItemListener() {
+            @Override
+            public void ClickItemListener(int position) {
+                Toast.makeText(getActivity(), "Soon", Toast.LENGTH_SHORT).show();
+            }
+        });
 
 
         recyclerView.setAdapter(adapter1);
