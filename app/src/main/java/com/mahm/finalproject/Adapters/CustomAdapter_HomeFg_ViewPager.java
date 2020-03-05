@@ -17,7 +17,6 @@ import java.util.List;
 
 public class CustomAdapter_HomeFg_ViewPager extends PagerAdapter {
 
-
     private List<ActivitiesData> data;
     private Context mCntext;
     private LayoutInflater layoutInflater;
