@@ -1,4 +1,4 @@
-package com.mahm.finalproject.Activites;
+package com.mahm.finalproject.Activities;
 
 
 import android.os.Bundle;

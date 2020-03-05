@@ -6,8 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:openDrawer="start"
-    tools:context=".Activites.HomeActivity">
+    tools:context=".Activities.HomeActivity"
+    tools:openDrawer="start">
 
 
     <RelativeLayout
@@ -19,19 +19,18 @@
             android:id="@+id/homeAct_toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
+            android:layout_alignParentTop="true"
             android:background="@color/colorPrimary"
             android:elevation="4dp"
-            android:layout_alignParentTop="true"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" >
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
             <ImageView
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_gravity="left|center_vertical"
+                android:layout_gravity="start|end"
                 android:layout_marginLeft="16dp"
-                android:src="@mipmap/ic_launcher_round"
-                />
+                android:src="@mipmap/ic_launcher_round" />
 
 
         </androidx.appcompat.widget.Toolbar>
@@ -39,9 +38,9 @@
         <FrameLayout
             android:id="@+id/fragment_container"
             android:layout_width="match_parent"
-            android:layout_below="@id/homeAct_toolbar"
+            android:layout_height="match_parent"
             android:layout_above="@id/home_act_bottom_nav"
-            android:layout_height="match_parent" />
+            android:layout_below="@id/homeAct_toolbar" />
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/home_act_bottom_nav"
@@ -60,9 +59,9 @@
         android:id="@+id/nav_View"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        app:itemTextAppearance="@style/TextAppearance.AppCompat.Body1"
         android:layout_gravity="start"
         app:headerLayout="@layout/navigation_heder"
+        app:itemTextAppearance="@style/TextAppearance.AppCompat.Body1"
         app:menu="@menu/drawer_menu" />
 
 </androidx.drawerlayout.widget.DrawerLayout>

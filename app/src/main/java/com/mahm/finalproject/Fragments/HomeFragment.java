@@ -14,7 +14,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ViewFlipper;
 
-import com.mahm.finalproject.Activites.ActivityDetails_HomeFg;
+import com.mahm.finalproject.Activities.ActivityDetails_HomeFg;
 import com.mahm.finalproject.Adapters.ActivitiesAdapter;
 import com.mahm.finalproject.Adapters.Custom_RvAdapter_HomeFg_News;
 import com.mahm.finalproject.Model.ActivitiesData;
@@ -59,8 +59,7 @@ public class HomeFragment extends Fragment implements Custom_RvAdapter_HomeFg_Ne
         data.add(new ActivitiesData(R.drawable.splash_img, "العنوان الرئيسي 7 ", "تفصيل بسيط عن النشاط"));
 
 
-//        adapter = new ActivitiesAdapter(data, getActivity());
-        adapter1 = new Custom_RvAdapter_HomeFg_News(getContext(), data, this);
+        adapter1 = new Custom_RvAdapter_HomeFg_News(getActivity(), data, this);
 
 
         recyclerView.setAdapter(adapter1);
@@ -106,7 +105,8 @@ public class HomeFragment extends Fragment implements Custom_RvAdapter_HomeFg_Ne
     @Override
     public void ClickItemListener(int position) {
 
+        Intent intent = new Intent(getActivity(), ActivityDetails_HomeFg.class);
+        startActivity(intent);
 
-        startActivity(new Intent(getContext(), ActivityDetails_HomeFg.class));
     }
 }

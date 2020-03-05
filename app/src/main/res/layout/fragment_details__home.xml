@@ -1,77 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activites.ActivityDetails_HomeFg">
+    android:orientation="vertical"
+    tools:context=".Activities.ActivityDetails_HomeFg">
 
 
-    <androidx.core.widget.NestedScrollView
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true">
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme">
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Some Fancy Title"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/detailsAct_toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:layout_alignParentTop="true"
-                android:background="@color/colorPrimary"
-                android:elevation="4dp"
-                android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-                app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Title"
-                    android:textSize="30sp"
-                    android:textAlignment="center"
-                    android:textColor="#000"
-                    android:fontFamily="@font/stc"
-                    />
-            </androidx.appcompat.widget.Toolbar>
-
-
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp">
 
             <ImageView
-                android:id="@+id/fg_details_img"
+                android:id="@+id/imageDetails"
                 android:layout_width="match_parent"
-                android:layout_height="220dp"
-                android:src="@drawable/ic_software_enginner_1" />
+                android:layout_height="200dp"
+                android:scaleX="2"
+                android:src="@drawable/login_img0_family" />
 
-            <MultiAutoCompleteTextView
-                android:id="@+id/fg_details_mTv_description"
+            <TextView
+                android:id="@+id/tvDescriptionDetails"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:fontFamily="@font/ge_ss_unique_light"
-                android:paddingLeft="8dp"
-                android:paddingRight="8dp"
-                android:text="
-                12qwadasdasdasdadsa
-           dasdasdasdadad12qwadasdasdasdadsadasd
-           12qwadasdasdasdadsadasdasdasdadad
-           asdasdadad12qwadasdasdasdadsadasdasdasdad
-         2qwadasdasdasdadsadasdasdasdadad
-          ad12qwadasdasdasdadsadasdasdasdadad12qwa
-          asdasdasdadsadasdasdasdadad12qwadasdasdasdad
-          sadasdasdasdad
-          12qwadasdasdasdadsadasdasdasdadad
-          12qwadasdasdasdadsadasdasdasdadad
-          12qwadasdasdasdadsadasdasdasdadad
-          12qwadasdasdasdadsadasdasdasdadad
-          12qwadasdasdasdadsadasdasdasdadad
-           ad12qwadasdasdasdadsadasdasdasdadad   "
-                android:textColor="#000"
-                android:textSize="20sp" />
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
+                The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here',
+                 making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text,
+                  and a search for 'lorem ipsum' will uncover many web sites still in their infancy.
+                   Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+                There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour,
+                or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.
+                 All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words,
+                 combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc."
+                android:textColor="#000000"
+                android:textSize="18sp" />
+
+
         </LinearLayout>
 
+    </ScrollView>
 
-    </androidx.core.widget.NestedScrollView>
-</FrameLayout>
+
+</LinearLayout>

@@ -11,14 +11,14 @@
         android:theme="@style/AppTheme.NoActionBar">
 
         <activity
-            android:name=".Activites.SplashActivity"
+            android:name=".Activities.SplashActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar">
 
         </activity>
 
 
         <activity
-            android:name=".Activites.LoginActivity"
+            android:name=".Activities.LoginActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar">
 
             <intent-filter>
@@ -29,12 +29,12 @@
 
         </activity>
 
-        <activity android:name=".Activites.SettingActivity" />
-        <activity android:name=".Activites.AboutUsActivity"/>
-        <activity android:name=".Activites.HomeActivity"/>
+        <activity android:name=".Activities.SettingActivity" />
+        <activity android:name=".Activities.AboutUsActivity"/>
+        <activity android:name=".Activities.HomeActivity"/>
 
         <activity
-            android:name=".Activites.ActivityDetails_HomeFg"
+            android:name=".Activities.ActivityDetails_HomeFg"
             android:theme="@style/AppTheme.NoActionBar">
 
 

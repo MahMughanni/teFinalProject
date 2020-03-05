@@ -1,27 +1,25 @@
-package com.mahm.finalproject.Activites;
+package com.mahm.finalproject.Activities;
 
 
 import android.os.Bundle;
 import android.widget.ImageView;
-import android.widget.MultiAutoCompleteTextView;
 import android.widget.TextView;
+
+import com.mahm.finalproject.R;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
-
-import com.mahm.finalproject.R;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class ActivityDetails_HomeFg extends AppCompatActivity {
 
-    private TextView mFgDetailsTvTitle;
-    private ImageView mFgDetailsImg;
-    private MultiAutoCompleteTextView mFgDetailsMTvDescription;
-    private Toolbar mDetailsActToolbar;
-
+    private TextView mToolbarTitle;
+    private Toolbar mToolbar;
+    private ImageView mImageDetails;
+    private TextView mTvDescriptionDetails;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,17 +27,17 @@ public class ActivityDetails_HomeFg extends AppCompatActivity {
         setContentView(R.layout.fragment_details__home);
 
         init();
+        setSupportActionBar(mToolbar);
 
-        setSupportActionBar(mDetailsActToolbar);
 
     }
 
 
     //Initialization "FindView"
     void init() {
-        mDetailsActToolbar = findViewById(R.id.detailsAct_toolbar);
-
-        mFgDetailsImg = findViewById(R.id.fg_details_img);
-        mFgDetailsMTvDescription = findViewById(R.id.fg_details_mTv_description);
+        mToolbarTitle = findViewById(R.id.toolbar_title);
+        mToolbar = findViewById(R.id.toolbar);
+        mImageDetails = findViewById(R.id.imageDetails);
+        mTvDescriptionDetails = findViewById(R.id.tvDescriptionDetails);
     }
 }

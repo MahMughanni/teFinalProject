@@ -1,4 +1,4 @@
-package com.mahm.finalproject.Activites;
+package com.mahm.finalproject.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -31,14 +31,12 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     private NavigationView mNavView;
     private DrawerLayout mDrawerLayout;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
         init();
-
 
         setSupportActionBar(mHomeActToolbar);
 

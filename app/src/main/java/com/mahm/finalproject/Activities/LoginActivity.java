@@ -1,4 +1,4 @@
-package com.mahm.finalproject.Activites;
+package com.mahm.finalproject.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -23,6 +23,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in_actvivty);
+
         init();
 
         mLoginActBtnLogin.setOnClickListener(this);
@@ -45,6 +46,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         switch (v.getId()) {
             case R.id.login_act_btn_login:
                 startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+                finish();
                 break;
 
             case R.id.login_act_tv_forget_pass:
