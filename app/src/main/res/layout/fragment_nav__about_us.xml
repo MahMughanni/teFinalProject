@@ -5,11 +5,133 @@
     android:layout_height="match_parent"
     tools:context=".Activities.AboutUsActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:textSize="30sp"
-        android:text="Fragment About us" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/rawy_regular"
+                android:padding="8dp"
+                android:text="نبذة عن التطبيق"
+                android:textColor="#C00505"
+                android:textSize="20sp"
+                android:textStyle="bold"
+
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/stc"
+                android:padding="8dp"
+                android:text="تطبيق يساعد الأهالي على متابعة ابناهم في الروضة حيث يوفر عديد من الميزات التي توفر الوقت وجهد على أهالي في متابعة ابناهم وبسهولة جداً "
+                android:textColor="#000"
+                android:textSize="16sp" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/rawy_regular"
+                android:padding="8dp"
+                android:text="اهداف التطبيق"
+                android:textColor="#C00505"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/stc"
+                android:padding="8dp"
+                android:text="1. الحل من مشكلة اهمال بعض الأهالي في من متابعة ابناهم بسبب عدم توفر الوقت لهم"
+                android:textColor="#000"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/stc"
+                android:padding="8dp"
+                android:text="2. زيادة إهتمام الأهل من خلال الملاحظات الاسبوعة التي سيتم اضافتها من قبل الروضة."
+                android:textColor="#000"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/rawy_regular"
+                android:padding="8dp"
+                android:text="ميزات التطبيق والخدمات التي يقدمها"
+                android:textColor="#C00505"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/stc"
+                android:padding="8dp"
+                android:text="1- عرض سجل المالي."
+                android:textColor="#000"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/stc"
+                android:padding="8dp"
+                android:text="2- يمكن معرفة إذا كان هناك عطلة رسمية."
+                android:textColor="#000"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/stc"
+                android:padding="8dp"
+                android:text="3- عرض أيام دوام. "
+                android:textColor="#000"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/stc"
+                android:padding="8dp"
+                android:text="4- عرض الأنشطة التي تقدمها الروضة."
+                android:textColor="#000"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/stc"
+                android:padding="8dp"
+                android:text="5- عرض الملاحظات المدرسين."
+                android:textColor="#000"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+
+    </ScrollView>
 
 </FrameLayout>
