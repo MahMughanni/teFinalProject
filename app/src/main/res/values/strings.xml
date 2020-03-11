@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">بداية المستقبل</string>
+    <string name="app_name">Beginner Future</string>
     <string name="_splash_activity_txt">Welcome</string>
     <string name="_login_activity_ed_hint_idNum">ID Number</string>
     <string name="_login_activity_ed_hint_password">Password</string>

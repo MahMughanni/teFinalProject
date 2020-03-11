@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.mahm.finalproject.R;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
@@ -55,6 +56,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 } else {
                     Toast.makeText(this, "ID Number or Password Is Empty", Toast.LENGTH_SHORT).show();
                 }
+
                 break;
 
             case R.id.login_act_tv_forget_pass:
