@@ -112,7 +112,6 @@ public class HomeFragment extends Fragment {
         StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                ActivitiesData data;
 //                Toast.makeText(getActivity(), ""+response, Toast.LENGTH_SHORT).show();
                 data_activity = new ArrayList<>();
 
@@ -122,7 +121,7 @@ public class HomeFragment extends Fragment {
 
                         JSONObject object = jsonArray.getJSONObject(i);
 
-                        data = new ActivitiesData();
+                        ActivitiesData  data = new ActivitiesData();
 
                         data.setTitle(object.getString("activitieName"));
                         data.setDescription(object.getString("description"));

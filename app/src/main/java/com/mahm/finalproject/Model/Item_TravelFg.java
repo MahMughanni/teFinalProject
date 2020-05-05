@@ -1,20 +1,22 @@
 package com.mahm.finalproject.Model;
 
 public class Item_TravelFg {
-    private int img;
+    private String img;
     private String title ;
 
-    public Item_TravelFg(int img, String title) {
+    public Item_TravelFg(String img, String title) {
         this.img = img;
         this.title = title;
     }
 
+    public Item_TravelFg() {
+    }
 
-    public int getImg() {
+    public String getImg() {
         return img;
     }
 
-    public void setImg(int img) {
+    public void setImg(String img) {
         this.img = img;
     }
 

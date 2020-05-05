@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.mahm.finalproject.Model.Item_TravelFg;
 import com.mahm.finalproject.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -20,6 +21,8 @@ public class Custom_RvAdapter_TravelFg extends RecyclerView.Adapter<Custom_RvAda
 
     private Context mContext;
     private ArrayList<Item_TravelFg> data;
+    private ImageView travel_img;
+
 
     public Custom_RvAdapter_TravelFg(Context mContext, ArrayList<Item_TravelFg> data) {
         this.mContext = mContext;
@@ -38,7 +41,7 @@ public class Custom_RvAdapter_TravelFg extends RecyclerView.Adapter<Custom_RvAda
     @Override
     public void onBindViewHolder(@NonNull mViewHodler holder, int position) {
 
-        holder.travel_img.setImageResource(data.get(position).getImg());
+        Picasso.get().load(data.get(position).getImg()).into(travel_img);
         holder.tv_title.setText(data.get(position).getTitle());
 
     }
@@ -50,7 +53,6 @@ public class Custom_RvAdapter_TravelFg extends RecyclerView.Adapter<Custom_RvAda
 
     public class mViewHodler extends RecyclerView.ViewHolder {
 
-        private ImageView travel_img;
         private TextView tv_title;
 
         public mViewHodler(@NonNull View itemView) {
