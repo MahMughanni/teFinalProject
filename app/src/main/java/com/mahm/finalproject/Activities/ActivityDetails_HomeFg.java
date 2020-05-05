@@ -1,11 +1,13 @@
 package com.mahm.finalproject.Activities;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.mahm.finalproject.R;
+import com.squareup.picasso.Picasso;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -30,6 +32,15 @@ public class ActivityDetails_HomeFg extends AppCompatActivity {
         setSupportActionBar(mToolbar);
 
 
+        Bundle bundle = getIntent().getExtras();
+
+        if (bundle != null) {
+
+            mToolbarTitle.setText(bundle.getString("title"));
+            mTvDescriptionDetails.setText(bundle.getString("description"));
+            Picasso.get().load(bundle.getString("image")).into(mImageDetails);
+
+        }
     }
 
 

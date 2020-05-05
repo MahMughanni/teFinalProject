@@ -8,31 +8,39 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.android.volley.Response;
 import com.mahm.finalproject.Model.ActivitiesData;
 
 import com.mahm.finalproject.R;
+import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Custom_RvAdapter_HomeFg_News extends RecyclerView.Adapter<Custom_RvAdapter_HomeFg_News.mViewHolder> {
 
     private Context mContext;
-    private List<ActivitiesData> data;
+    private ArrayList<ActivitiesData> data;
     OnClickItemListener mOnClickItemListener;
+    private ImageView img_vp;
 
 
-    public Custom_RvAdapter_HomeFg_News(Context mContext, List<ActivitiesData> data, OnClickItemListener mOnClickItemListener) {
+
+    public Custom_RvAdapter_HomeFg_News(Context mContext, ArrayList<ActivitiesData> data, OnClickItemListener mOnClickItemListener) {
         this.mContext = mContext;
         this.data = data;
         this.mOnClickItemListener = mOnClickItemListener;
+
     }
 
-    public Custom_RvAdapter_HomeFg_News(Context mContext, List<ActivitiesData> data) {
+    public Custom_RvAdapter_HomeFg_News(Context mContext, ArrayList<ActivitiesData> data) {
         this.mContext = mContext;
         this.data = data;
     }
+
 
     @NonNull
     @Override
@@ -43,25 +51,12 @@ public class Custom_RvAdapter_HomeFg_News extends RecyclerView.Adapter<Custom_Rv
         return new mViewHolder(view, mOnClickItemListener);
     }
 
-    @Override
-    public void onBindViewHolder(@NonNull mViewHolder holder, int position) {
 
-        holder.img_vp.setImageResource(data.get(position).getImg());
-        holder.title.setText(data.get(position).getTitle());
-        holder.description.setText(data.get(position).getDescription());
-
-    }
-    
-
-    @Override
-    public int getItemCount() {
-        return data.size();
-    }
 
     public class mViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         private TextView title, description;
-        private ImageView img_vp;
+
         OnClickItemListener mOnClickItemListener;
 
 
@@ -83,6 +78,22 @@ public class Custom_RvAdapter_HomeFg_News extends RecyclerView.Adapter<Custom_Rv
             mOnClickItemListener.ClickItemListener(getAdapterPosition());
 
         }
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull mViewHolder holder, int position) {
+
+        holder.title.setText(data.get(position).getTitle());
+        holder.description.setText(data.get(position).getDescription());
+        Picasso.get().load(data.get(position).getImg()).into(img_vp);
+
+
+    }
+
+
+    @Override
+    public int getItemCount() {
+        return data.size();
     }
 
 

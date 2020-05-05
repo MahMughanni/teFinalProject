@@ -50,7 +50,7 @@ public class CustomAdapter_HomeFg_ViewPager extends PagerAdapter {
         title = view.findViewById(R.id.item_Vp_tv_title);
         description = view.findViewById(R.id.item_Vp_description);
 
-        img_vp.setImageResource(data.get(position).getImg());
+//        img_vp.set(data.get(position).getImg());
         title.setText(data.get(position).getTitle());
         description.setText(data.get(position).getDescription());
 

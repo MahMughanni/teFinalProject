@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -13,6 +14,11 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import com.mahm.finalproject.Fragments.CameraFragment;
@@ -23,6 +29,9 @@ import com.mahm.finalproject.Fragments.NoteFragment;
 import com.mahm.finalproject.Fragments.TravelFragment;
 import com.mahm.finalproject.R;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+
 public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private BottomNavigationView mHomeActBottomNav;
@@ -31,12 +40,15 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     private NavigationView mNavView;
     private DrawerLayout mDrawerLayout;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+
         init();
+
 
         setSupportActionBar(mHomeActToolbar);
 
@@ -196,4 +208,6 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             super.onBackPressed();
         }
     }
+
+
 }

@@ -35,8 +35,6 @@
             android:id="@+id/homeFg_list_item"
             />
 
-
-
     </LinearLayout>
 
 

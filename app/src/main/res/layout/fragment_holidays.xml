@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:theme="@style/Theme.AppCompat.NoActionBar"
     tools:context=".Fragments.HolidaysFragment">
 
@@ -15,21 +15,21 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
-            <com.applandeo.materialcalendarview.CalendarView
-                android:id="@+id/calendarView"
-                app:headerColor="#04156D"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                        <com.applandeo.materialcalendarview.CalendarView
+                            android:id="@+id/calendarView"
+                            app:headerColor="#04156D"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
 
             <androidx.recyclerview.widget.RecyclerView
-                android:layout_width="match_parent"
-                android:layout_marginTop="8dp"
-                android:visibility="gone"
-                android:layout_height="wrap_content"
                 android:id="@+id/holidaysfg_RecView"
-                />
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:visibility="gone" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 </FrameLayout>

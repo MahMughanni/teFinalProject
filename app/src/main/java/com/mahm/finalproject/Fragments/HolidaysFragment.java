@@ -59,19 +59,19 @@ public class HolidaysFragment extends Fragment {
         data.add(new Item_HolidaysFg("اجازة راس السنة 8 ", " اجازة ل ٣ ايام من تاريخ ١-١-٢٠٢٠ الى ٣-١-٢٠٢٠"));
 
 
-        mCalendarView.setOnDayClickListener(new OnDayClickListener() {
-            @Override
-            public void onDayClick(EventDay eventDay) {
-
-                recViwe_Adapter = new Custom_RvAdapter_HolidaysFg(getContext(), data);
-                mFragRecView.setLayoutManager(new LinearLayoutManager(getContext()));
-                mFragRecView.setHasFixedSize(true);
-                mFragRecView.setAdapter(recViwe_Adapter);
-
-                mFragRecView.setVisibility(View.VISIBLE);
-
-            }
-        });
+//        mCalendarView.setOnDayClickListener(new OnDayClickListener() {
+//            @Override
+//            public void onDayClick(EventDay eventDay) {
+//
+//                recViwe_Adapter = new Custom_RvAdapter_HolidaysFg(getContext(), data);
+//                mFragRecView.setLayoutManager(new LinearLayoutManager(getContext()));
+//                mFragRecView.setHasFixedSize(true);
+//                mFragRecView.setAdapter(recViwe_Adapter);
+//
+//                mFragRecView.setVisibility(View.VISIBLE);
+//
+//            }
+//        });
 
 
         return view;
@@ -80,7 +80,7 @@ public class HolidaysFragment extends Fragment {
 
     //Initialization "FindView"
     void init() {
-        mCalendarView = view.findViewById(R.id.calendarView);
+//        mCalendarView = view.findViewById(R.id.calendarView);
         mFragRecView = view.findViewById(R.id.holidaysfg_RecView);
 
     }

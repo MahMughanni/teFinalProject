@@ -1,28 +1,38 @@
 package com.mahm.finalproject.Model;
 
 public class ActivitiesData {
+    private int activitytId;
+    private String title;
+    private String description;
+    private String img;
 
-     private int img;
-     private String title ;
-     private String description ;
 
-    public ActivitiesData(int img, String title, String description) {
-        this.img = img;
+    public ActivitiesData(int activitytId, String title, String description, String img) {
+        this.activitytId = activitytId;
         this.title = title;
         this.description = description;
-    }
-
-    public ActivitiesData(int img) {
         this.img = img;
     }
 
-    public int getImg() {
+    public String getImg() {
         return img;
     }
 
-    public void setImg(int img) {
+    public void setImg(String img) {
         this.img = img;
     }
+
+    public int getActivitytId() {
+        return activitytId;
+    }
+
+    public void setActivitytId(int activitytId) {
+        this.activitytId = activitytId;
+    }
+
+    public ActivitiesData() {
+    }
+
 
     public String getTitle() {
         return title;
