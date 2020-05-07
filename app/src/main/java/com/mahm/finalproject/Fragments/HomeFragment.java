@@ -10,10 +10,12 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
 
@@ -25,13 +27,16 @@ import com.android.volley.toolbox.Volley;
 import com.mahm.finalproject.Activities.ActivityDetails_HomeFg;
 import com.mahm.finalproject.Adapters.Custom_RvAdapter_HomeFg_News;
 import com.mahm.finalproject.Model.ActivitiesData;
+import com.mahm.finalproject.Model.AdsData;
 import com.mahm.finalproject.R;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -40,6 +45,7 @@ public class HomeFragment extends Fragment {
 
     private View view;
     private ViewFlipper viewFlipper;
+    private TextView tvTitleAds;
     private Custom_RvAdapter_HomeFg_News adapter;
     private ArrayList<ActivitiesData> data_activity;
     private RecyclerView recyclerView;
@@ -60,15 +66,11 @@ public class HomeFragment extends Fragment {
 
         data_activity = new ArrayList<>();
 
-
         activityAPI();
+        loadAds();
 
-        int[] images = {R.drawable.splash_img, R.drawable.login_img_family, R.drawable.login_img0_family};
-
-        for (int image :
-                images) {
-            slideImages(image);
-        }
+//        int[] images = {R.drawable.splash_img, R.drawable.splash_img,
+//                R.drawable.splash_img, R.drawable.splash_img};
 
         return view;
     }
@@ -77,14 +79,16 @@ public class HomeFragment extends Fragment {
     void init() {
         recyclerView = view.findViewById(R.id.homeFg_list_item);
         viewFlipper = view.findViewById(R.id.viewFlipper);
-
+//        tvTitleAds = view.findViewById(R.id.titleAds);
     }
 
-    private void slideImages(int image) {
+    private void slideImages(String image, String title) {
 
         ImageView imageView = new ImageView(getActivity());
+//        imageView.setBackgroundResource(image);
+        Picasso.with(getActivity()).load(image).into(imageView);
 
-        imageView.setBackgroundResource(image);
+//        tvTitleAds.setText(title);
 
         viewFlipper.addView(imageView);
         viewFlipper.setFlipInterval(4000);
@@ -121,7 +125,7 @@ public class HomeFragment extends Fragment {
 
                         JSONObject object = jsonArray.getJSONObject(i);
 
-                        ActivitiesData  data = new ActivitiesData();
+                        ActivitiesData data = new ActivitiesData();
 
                         data.setTitle(object.getString("activitieName"));
                         data.setDescription(object.getString("description"));
@@ -160,6 +164,50 @@ public class HomeFragment extends Fragment {
 
         Volley.newRequestQueue(getActivity()).add(request);
 
+    }
+
+    private void loadAds() {
+
+        String url = "http://mohamedd8f8w-001-site1.dtempurl.com/api/ads";
+        ArrayList<AdsData> adsData = new ArrayList<>();
+
+        StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+
+                try {
+                    JSONArray array = new JSONArray(response);
+
+                    for (int i = 0; i < array.length(); i++) {
+
+                        JSONObject object = array.getJSONObject(i);
+
+                        int adsId = object.getInt("adId");
+                        String adsTitle = object.getString("adTitle");
+                        String adsImage = object.getString("adPathImage");
+
+                        adsData.add(new AdsData("فادي هنية", adsImage));
+                        String ImgAry[] = {adsImage};
+
+                        for (String image : ImgAry) {
+                            slideImages(image, "");
+                        }
+                    }
+
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e("AdsHomeFragment", error.getMessage() + "");
+            }
+        });
+
+        Volley.newRequestQueue(getActivity()).add(request);
     }
 
 //    @Override

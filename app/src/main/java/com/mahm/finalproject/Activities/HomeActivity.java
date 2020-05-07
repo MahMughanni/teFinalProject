@@ -1,6 +1,8 @@
 package com.mahm.finalproject.Activities;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
@@ -151,6 +153,11 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 break;
 
             case R.id.drawer_ic_logout:
+                SharedPreferences sp = getSharedPreferences(LoginActivity.USERS_SHARED, MODE_PRIVATE);
+                SharedPreferences.Editor spEdit = sp.edit();
+                spEdit.clear();
+                spEdit.apply();
+                
                 startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                 finish();
                 break;

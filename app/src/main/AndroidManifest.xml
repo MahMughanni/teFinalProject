@@ -10,40 +10,26 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:usesCleartextTraffic="true"
-        android:theme="@style/AppTheme.NoActionBar">
+        android:theme="@style/AppTheme.NoActionBar"
+        android:usesCleartextTraffic="true">
         <activity android:name=".Activities.UpdatePhoneNumberActivity"></activity>
-
         <activity android:name=".Activities.ResetPasswordActivity"></activity>
         <activity android:name=".Activities.UpdatePasswordActivity" />
-
         <activity
             android:name=".Activities.SplashActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar">
-
-
-        </activity>
-
-        <activity
-            android:name=".Activities.LoginActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
-
-
-        <activity android:name=".Activities.SettingActivity" />
-        <activity android:name=".Activities.AboutUsActivity" />
-
-
-        <activity android:name=".Activities.HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
-
         </activity>
-
-
+        <activity
+            android:name=".Activities.LoginActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity android:name=".Activities.SettingActivity" />
+        <activity android:name=".Activities.AboutUsActivity" />
+        <activity android:name=".Activities.HomeActivity" />
         <activity
             android:name=".Activities.ActivityDetails_HomeFg"
             android:theme="@style/AppTheme.NoActionBar" />

@@ -38,7 +38,7 @@ public class ActivityDetails_HomeFg extends AppCompatActivity {
 
             mToolbarTitle.setText(bundle.getString("title"));
             mTvDescriptionDetails.setText(bundle.getString("description"));
-            Picasso.get().load(bundle.getString("image")).into(mImageDetails);
+            Picasso.with(ActivityDetails_HomeFg.this).load(bundle.getString("image")).into(mImageDetails);
 
         }
     }

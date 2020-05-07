@@ -41,7 +41,7 @@ public class Custom_RvAdapter_TravelFg extends RecyclerView.Adapter<Custom_RvAda
     @Override
     public void onBindViewHolder(@NonNull mViewHodler holder, int position) {
 
-        Picasso.get().load(data.get(position).getImg()).into(travel_img);
+        Picasso.with(mContext).load(data.get(position).getImg()).into(travel_img);
         holder.tv_title.setText(data.get(position).getTitle());
 
     }

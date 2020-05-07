@@ -85,7 +85,7 @@ public class Custom_RvAdapter_HomeFg_News extends RecyclerView.Adapter<Custom_Rv
 
         holder.title.setText(data.get(position).getTitle());
         holder.description.setText(data.get(position).getDescription());
-        Picasso.get().load(data.get(position).getImg()).into(img_vp);
+        Picasso.with(mContext).load(data.get(position).getImg()).into(img_vp);
 
 
     }

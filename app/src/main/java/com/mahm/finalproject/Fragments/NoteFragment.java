@@ -1,18 +1,32 @@
 package com.mahm.finalproject.Fragments;
 
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.mahm.finalproject.Activities.LoginActivity;
 import com.mahm.finalproject.Adapters.Custom_RvAdapter_NoteFg;
 import com.mahm.finalproject.Model.Item_NoteFg;
 import com.mahm.finalproject.R;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,9 +39,10 @@ public class NoteFragment extends Fragment {
     private View view;
     private RecyclerView mNotefgRecView;
     private List<Item_NoteFg> mData;
+    private TextView tvStudentName;
     private Custom_RvAdapter_NoteFg recViwe_Adapter;
 
-
+    private String url = "http://mohamedd8f8w-001-site1.dtempurl.com/api/notes";
 
     public NoteFragment() {
         // Required empty public constructor
@@ -41,39 +56,14 @@ public class NoteFragment extends Fragment {
 
         init();
 
-        mData  = new ArrayList<>();
+        SharedPreferences sp = getActivity().getSharedPreferences(LoginActivity.USERS_SHARED, Context.MODE_PRIVATE);
 
-        mData.add(new Item_NoteFg("رياضيات"
-                , "احمد"
-                , "متابعة السلوك"
-                ,
-                "الفاظ غير مناسبة", R.drawable.splash_img)) ;
+        String name = sp.getString(LoginActivity.STUDENT_NAME, "");
 
-        mData.add(new Item_NoteFg("رياضيات"
-                , "احمد"
-                , "متابعة السلوك"
-                ,
-                "الفاظ غير مناسبة", R.drawable.splash_img)) ;
-        mData.add(new Item_NoteFg("رياضيات"
-                , "احمد"
-                , "متابعة السلوك"
-                ,
-                "الفاظ غير مناسبة", R.drawable.splash_img)) ;
-        mData.add(new Item_NoteFg("رياضيات"
-                , "احمد"
-                , "متابعة السلوك"
-                ,
-                "الفاظ غير مناسبة", R.drawable.splash_img)) ;
+        tvStudentName.setText(name);
 
-
-
-        recViwe_Adapter = new Custom_RvAdapter_NoteFg(getContext(), mData);
-        mNotefgRecView.setLayoutManager(new LinearLayoutManager(getContext()));
-        mNotefgRecView.setHasFixedSize(true);
-        mNotefgRecView.setAdapter(recViwe_Adapter);
-
-
-
+        mData = new ArrayList<>();
+        loadNots();
 
         return view;
 
@@ -83,6 +73,60 @@ public class NoteFragment extends Fragment {
     void init() {
 
         mNotefgRecView = view.findViewById(R.id.notefg_RecView);
+        tvStudentName = view.findViewById(R.id.tvStudentName);
+
+    }
+
+    private void loadNots() {
+
+        StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+
+                try {
+                    JSONArray array = new JSONArray(response);
+
+                    for (int i = 0; i < array.length(); i++) {
+
+                        JSONObject object = array.getJSONObject(i);
+
+                        int notId = object.getInt("noteId");
+                        String message = object.getString("massage");
+                        String title = object.getString("title");
+                        int teacherId = object.getInt("teacherId");
+
+                        JSONObject object2 = object.getJSONObject("teacher");
+                        String teacherName = object2.getString("name");
+
+                        JSONObject object3 = object2.getJSONObject("subject");
+                        int subjectId = object3.getInt("subjectId");
+                        String subjectName = object3.getString("subjectName");
+
+                        mData.add(new Item_NoteFg(subjectName
+                                , teacherName
+                                , title
+                                , message));
+
+
+                        recViwe_Adapter = new Custom_RvAdapter_NoteFg(getContext(), mData);
+                        mNotefgRecView.setLayoutManager(new LinearLayoutManager(getContext()));
+                        mNotefgRecView.setHasFixedSize(true);
+                        mNotefgRecView.setAdapter(recViwe_Adapter);
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e("notsFragment", error.getMessage());
+            }
+        });
+
+        Volley.newRequestQueue(getActivity()).add(request);
 
     }
 

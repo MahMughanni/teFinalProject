@@ -12,31 +12,41 @@
 
 
         <ViewFlipper
+            android:id="@+id/viewFlipper"
             android:layout_width="match_parent"
             android:layout_height="250dp"
-            android:overScrollMode="ifContentScrolls"
             android:clipToPadding="false"
             android:foregroundGravity="center"
-            android:id="@+id/viewFlipper"/>
+            android:overScrollMode="ifContentScrolls">
+
+<!--            <TextView-->
+<!--                android:id="@+id/titleAds"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="bottom"-->
+<!--                android:padding="8dp"-->
+<!--                android:text="fadi hania"-->
+<!--                android:textColor="@android:color/black"-->
+<!--                android:textSize="18sp" />-->
+
+        </ViewFlipper>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_marginRight="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="1dp"
+            android:layout_marginRight="8dp"
             android:layout_marginBottom="1dp"
             android:background="#6B000000" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:layout_marginTop="8dp"
+            android:id="@+id/homeFg_list_item"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/homeFg_list_item"
-            />
+            android:layout_marginTop="8dp" />
 
     </LinearLayout>
-
 
 
 </FrameLayout>

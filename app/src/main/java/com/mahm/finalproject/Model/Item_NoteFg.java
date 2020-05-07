@@ -14,8 +14,13 @@ public class Item_NoteFg {
         Img_Desc = img_Desc;
     }
 
-//    public Item_NoteFg() {
-//    }
+    public Item_NoteFg(String subTitle, String name, String noteTilte, String description) {
+        SubTitle = subTitle;
+        Name = name;
+        NoteTilte = noteTilte;
+        Description = description;
+    }
+
 
     public String getSubTitle() {
         return SubTitle;
