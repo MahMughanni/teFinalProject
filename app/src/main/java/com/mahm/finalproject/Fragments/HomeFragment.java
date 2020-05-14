@@ -1,7 +1,11 @@
 package com.mahm.finalproject.Fragments;
 
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -14,6 +18,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterViewFlipper;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,6 +30,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.mahm.finalproject.Activities.ActivityDetails_HomeFg;
+import com.mahm.finalproject.Activities.LoginActivity;
+import com.mahm.finalproject.Adapters.AdapterViewFlipperAdapter;
 import com.mahm.finalproject.Adapters.Custom_RvAdapter_HomeFg_News;
 import com.mahm.finalproject.Model.ActivitiesData;
 import com.mahm.finalproject.Model.AdsData;
@@ -44,8 +51,7 @@ import java.util.Objects;
 public class HomeFragment extends Fragment {
 
     private View view;
-    private ViewFlipper viewFlipper;
-    private TextView tvTitleAds;
+    private AdapterViewFlipper adapterViewFlipper;
     private Custom_RvAdapter_HomeFg_News adapter;
     private ArrayList<ActivitiesData> data_activity;
     private RecyclerView recyclerView;
@@ -63,14 +69,15 @@ public class HomeFragment extends Fragment {
 
         view = LayoutInflater.from(getContext()).inflate(R.layout.fragment_home, container, false);
         init();
+        if (!checkInternetConnected()) {
+            Toast.makeText(getActivity(), "عذرا لا يوجد اتصال بالانترنت", Toast.LENGTH_LONG).show();
 
-        data_activity = new ArrayList<>();
+        } else {
+            data_activity = new ArrayList<>();
 
-        activityAPI();
-        loadAds();
-
-//        int[] images = {R.drawable.splash_img, R.drawable.splash_img,
-//                R.drawable.splash_img, R.drawable.splash_img};
+            activityAPI();
+            loadAds();
+        }
 
         return view;
     }
@@ -78,29 +85,8 @@ public class HomeFragment extends Fragment {
     //Initialization "FindView"
     void init() {
         recyclerView = view.findViewById(R.id.homeFg_list_item);
-        viewFlipper = view.findViewById(R.id.viewFlipper);
-//        tvTitleAds = view.findViewById(R.id.titleAds);
+        adapterViewFlipper = view.findViewById(R.id.viewFlipper);
     }
-
-    private void slideImages(String image, String title) {
-
-        ImageView imageView = new ImageView(getActivity());
-//        imageView.setBackgroundResource(image);
-        Picasso.with(getActivity()).load(image).into(imageView);
-
-//        tvTitleAds.setText(title);
-
-        viewFlipper.addView(imageView);
-        viewFlipper.setFlipInterval(4000);
-        viewFlipper.setAutoStart(true);
-
-        // animation
-        viewFlipper.setInAnimation(getActivity(), android.R.anim.slide_in_left);
-        viewFlipper.setOutAnimation(getActivity(), android.R.anim.slide_out_right);
-
-
-    }
-
 
     void setupRecyclerView() {
 
@@ -186,14 +172,17 @@ public class HomeFragment extends Fragment {
                         String adsTitle = object.getString("adTitle");
                         String adsImage = object.getString("adPathImage");
 
-                        adsData.add(new AdsData("فادي هنية", adsImage));
-                        String ImgAry[] = {adsImage};
+                        adsData.add(new AdsData(adsTitle, adsImage));
 
-                        for (String image : ImgAry) {
-                            slideImages(image, "");
-                        }
                     }
 
+                    Activity activity = getActivity();
+                    if (activity != null && isAdded()) {
+                        adapterViewFlipper.setAdapter(new AdapterViewFlipperAdapter(getActivity(), adsData));
+                        adapterViewFlipper.setFlipInterval(5000);
+                        adapterViewFlipper.startFlipping();
+
+                    }
 
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -207,19 +196,13 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        Volley.newRequestQueue(getActivity()).add(request);
+        Volley.newRequestQueue(Objects.requireNonNull(getActivity())).add(request);
     }
 
-//    @Override
-//    public void ClickItemListener(int position) {
-//
-//        Bundle b = new Bundle();
-//
-//
-//        Intent intent = new Intent(getActivity(), ActivityDetails_HomeFg.class);
-//        startActivity(intent);
-//
-//    }
+    private boolean checkInternetConnected() {
+        ConnectivityManager connectivityManager = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+        return connectivityManager.getActiveNetworkInfo() != null && connectivityManager.getActiveNetworkInfo().isConnectedOrConnecting();
+    }
 
 
 }

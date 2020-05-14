@@ -2,17 +2,7 @@ package com.mahm.finalproject.Model;
 
 public class Item_NoteFg {
 
-    private String SubTitle ,Name , NoteTilte , Description ;
-    private int Img_Desc ;
-
-
-    public Item_NoteFg(String subTitle, String name, String noteTilte, String description, int img_Desc) {
-        SubTitle = subTitle;
-        Name = name;
-        NoteTilte = noteTilte;
-        Description = description;
-        Img_Desc = img_Desc;
-    }
+    private String SubTitle, Name, NoteTilte, Description;
 
     public Item_NoteFg(String subTitle, String name, String noteTilte, String description) {
         SubTitle = subTitle;
@@ -54,11 +44,4 @@ public class Item_NoteFg {
         Description = description;
     }
 
-    public int getImg_Desc() {
-        return Img_Desc;
-    }
-
-    public void setImg_Desc(int img_Desc) {
-        Img_Desc = img_Desc;
-    }
 }

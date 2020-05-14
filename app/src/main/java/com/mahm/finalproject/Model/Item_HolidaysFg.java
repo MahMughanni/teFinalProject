@@ -2,14 +2,24 @@ package com.mahm.finalproject.Model;
 
 public class Item_HolidaysFg {
 
-    private String title , description ;
+    int id;
+    private String title , description, dateHoliday;
 
-    public Item_HolidaysFg(String title, String description) {
+    public Item_HolidaysFg(int id, String title,String date) {
+        this.id = id;
         this.title = title;
-        this.description = description;
+        this.dateHoliday = date;
     }
 
     public Item_HolidaysFg() {
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getTitle() {
@@ -26,5 +36,13 @@ public class Item_HolidaysFg {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getDateHoliday() {
+        return dateHoliday;
+    }
+
+    public void setDateHoliday(String dateHoliday) {
+        this.dateHoliday = dateHoliday;
     }
 }

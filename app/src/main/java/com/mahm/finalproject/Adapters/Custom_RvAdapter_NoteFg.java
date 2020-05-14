@@ -17,7 +17,6 @@ import java.util.List;
 
 public class Custom_RvAdapter_NoteFg extends RecyclerView.Adapter<Custom_RvAdapter_NoteFg.mViewHolder> {
 
-
     private Context mContext;
     List<Item_NoteFg> data;
 
@@ -40,7 +39,6 @@ public class Custom_RvAdapter_NoteFg extends RecyclerView.Adapter<Custom_RvAdapt
     @Override
     public void onBindViewHolder(@NonNull mViewHolder holder, int position) {
 
-        holder.mNoteItemImg.setImageResource(data.get(position).getImg_Desc());
         holder.mNoteItemSubTitle.setText(data.get(position).getSubTitle());
         holder.mNoteItemStudName.setText(data.get(position).getName());
         holder.mNoteItemNoteTitle.setText(data.get(position).getNoteTilte());
@@ -55,7 +53,6 @@ public class Custom_RvAdapter_NoteFg extends RecyclerView.Adapter<Custom_RvAdapt
 
     public class mViewHolder extends RecyclerView.ViewHolder {
 
-        private ImageView mNoteItemImg;
         private TextView mNoteItemSubTitle;
         private TextView mNoteItemStudName;
         private TextView mNoteItemNoteTitle;
@@ -64,7 +61,6 @@ public class Custom_RvAdapter_NoteFg extends RecyclerView.Adapter<Custom_RvAdapt
         public mViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            mNoteItemImg = itemView.findViewById(R.id.noteItem_img);
             mNoteItemSubTitle = itemView.findViewById(R.id.noteItem_subTilte);
             mNoteItemStudName = itemView.findViewById(R.id.noteItem_studName);
             mNoteItemNoteTitle = itemView.findViewById(R.id.noteItem_noteTitle);

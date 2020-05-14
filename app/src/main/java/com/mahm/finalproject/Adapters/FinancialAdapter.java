@@ -36,10 +36,12 @@ public class FinancialAdapter extends RecyclerView.Adapter<FinancialAdapter.Fina
     @Override
     public void onBindViewHolder(@NonNull FinancialHolder holder, int position) {
         FinancialData data1 = data.get(position);
+        String replace = data1.getDate().replaceAll("-", "/");
+
         holder.tvCreditor.setText(data1.getCreditor() + "");
         holder.tvDebit.setText(data1.getDebit() + "");
-        holder.tvTotalBill.setText(data1.getTotalBill() + "");
-        holder.tvDate.setText(data1.getDate());
+        holder.tvTotalBill.setText((int) data1.getTotalBill() + "");
+        holder.tvDate.setText(replace);
     }
 
     @Override

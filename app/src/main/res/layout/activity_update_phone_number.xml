@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:orientation="vertical"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".Activities.UpdatePhoneNumberActivity">
 
 
@@ -14,11 +14,11 @@
         android:background="#fff"
         android:fontFamily="@font/stc"
         android:padding="16dp"
-        android:text="Update Phone Number"
+        android:text="تغيير رقم الهاتف"
         android:textAlignment="center"
         android:textColor="#000"
-        android:textStyle="bold"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -26,21 +26,37 @@
         android:background="#aaa" />
 
     <EditText
+        android:id="@+id/etPhoneNumber"
         android:layout_width="match_parent"
         android:layout_height="56dp"
-        android:background="#fff"
         android:layout_marginTop="8dp"
+        android:background="#fff"
         android:fontFamily="@font/stc"
-        android:hint="New Number"
+        android:hint="رقم الهاتف الجديد"
+        android:inputType="number"
         android:padding="16dp"
         android:textColor="#000"
         android:textColorHint="#000"
-        android:textSize="16sp"
-       />
+        android:textSize="16sp" />
 
+    <EditText
+        android:id="@+id/etPasswordPhoneNumber"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginTop="8dp"
+        android:background="#fff"
+        android:fontFamily="@font/stc"
+        android:hint="كلمة المرور"
+        android:gravity="right"
+        android:inputType="textPassword"
+        android:padding="16dp"
+        android:textColor="#000"
+        android:textColorHint="#000"
+        android:textSize="16sp" />
 
 
     <Button
+        android:id="@+id/btnOkNewPhoneNumber"
         android:layout_width="250dp"
         android:layout_height="56dp"
         android:layout_gravity="center"

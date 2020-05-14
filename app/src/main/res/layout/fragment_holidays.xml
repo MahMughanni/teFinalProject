@@ -17,19 +17,18 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-                        <com.applandeo.materialcalendarview.CalendarView
-                            android:id="@+id/calendarView"
-                            app:headerColor="#04156D"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
+            <com.applandeo.materialcalendarview.CalendarView
+                android:id="@+id/calendarView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:headerColor="#04156D" />
 
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/holidaysfg_RecView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:visibility="gone" />
+                android:layout_marginTop="8dp" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 </FrameLayout>

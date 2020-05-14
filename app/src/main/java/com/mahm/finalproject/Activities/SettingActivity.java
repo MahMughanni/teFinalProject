@@ -1,6 +1,7 @@
 package com.mahm.finalproject.Activities;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Switch;
@@ -36,6 +37,19 @@ public class SettingActivity extends AppCompatActivity {
             }
         });
 
+        mSettingFgTvChangePassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getBaseContext(), UpdatePasswordActivity.class));
+            }
+        });
+
+        mSettingFgTvChangePhnoeNumber.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getBaseContext(), UpdatePhoneNumberActivity.class));
+            }
+        });
 
     }
 

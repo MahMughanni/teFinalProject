@@ -1,7 +1,10 @@
 package com.mahm.finalproject.Activities;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -74,7 +77,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 String password = mLoginActEdPassword.getText().toString();
 
                 if (!idNumber.isEmpty() && !password.isEmpty()) {
-                    loginStudent(idNumber.trim(), password.trim());
+
+                    if (!checkInternetConnected()) {
+                        Toast.makeText(LoginActivity.this, "عذرا لا يوجد اتصال بالانترنت", Toast.LENGTH_LONG).show();
+                    } else {
+
+                        loginStudent(idNumber.trim(), password.trim());
+                    }
 
                 } else {
                     Toast.makeText(this, "ID Number or Password Is Empty", Toast.LENGTH_SHORT).show();
@@ -138,5 +147,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         });
 
         Volley.newRequestQueue(this).add(request);
+    }
+
+    private boolean checkInternetConnected() {
+        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        return connectivityManager.getActiveNetworkInfo() != null && connectivityManager.getActiveNetworkInfo().isConnectedOrConnecting();
     }
 }

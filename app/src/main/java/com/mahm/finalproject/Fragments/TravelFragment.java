@@ -1,5 +1,8 @@
 package com.mahm.finalproject.Fragments;
 
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -47,7 +50,12 @@ public class TravelFragment extends Fragment {
 
         view = LayoutInflater.from(getContext()).inflate(R.layout.fragment_travel, container, false);
         mTravelFgRv = view.findViewById(R.id.travelFg_rv);
-        getTripsApi();
+        if (!checkInternetConnected()) {
+            Toast.makeText(getActivity(), "عذرا لا يوجد اتصال بالانترنت", Toast.LENGTH_LONG).show();
+
+        } else {
+            getTripsApi();
+        }
 
 
         return view;
@@ -86,8 +94,7 @@ public class TravelFragment extends Fragment {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getActivity(), " Error" + error, Toast.LENGTH_SHORT).show();
-
+                Toast.makeText(getActivity(), " Error" + error + "", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -103,5 +110,10 @@ public class TravelFragment extends Fragment {
         mTravelFgRv.setLayoutManager(new GridLayoutManager(getContext(), 1));
         mTravelFgRv.setHasFixedSize(true);
 
+    }
+
+    private boolean checkInternetConnected() {
+        ConnectivityManager connectivityManager = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+        return connectivityManager.getActiveNetworkInfo() != null && connectivityManager.getActiveNetworkInfo().isConnectedOrConnecting();
     }
 }

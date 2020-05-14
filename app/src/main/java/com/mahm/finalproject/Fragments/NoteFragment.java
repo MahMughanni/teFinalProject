@@ -3,12 +3,15 @@ package com.mahm.finalproject.Fragments;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -55,15 +58,20 @@ public class NoteFragment extends Fragment {
         view = LayoutInflater.from(getContext()).inflate(R.layout.fragment_note, container, false);
 
         init();
+        if (!checkInternetConnected()) {
+            Toast.makeText(getActivity(), "عذرا لا يوجد اتصال بالانترنت", Toast.LENGTH_LONG).show();
 
-        SharedPreferences sp = getActivity().getSharedPreferences(LoginActivity.USERS_SHARED, Context.MODE_PRIVATE);
+        } else {
+            SharedPreferences sp = getActivity().getSharedPreferences(LoginActivity.USERS_SHARED, Context.MODE_PRIVATE);
 
-        String name = sp.getString(LoginActivity.STUDENT_NAME, "");
+            String name = sp.getString(LoginActivity.STUDENT_NAME, "");
 
-        tvStudentName.setText(name);
+            tvStudentName.setText(name);
 
-        mData = new ArrayList<>();
-        loadNots();
+            mData = new ArrayList<>();
+            loadNots();
+        }
+
 
         return view;
 
@@ -122,12 +130,17 @@ public class NoteFragment extends Fragment {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Log.e("notsFragment", error.getMessage());
+                Log.e("notsFragment", error.getMessage() + "");
             }
         });
 
         Volley.newRequestQueue(getActivity()).add(request);
 
+    }
+
+    private boolean checkInternetConnected() {
+        ConnectivityManager connectivityManager = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+        return connectivityManager.getActiveNetworkInfo() != null && connectivityManager.getActiveNetworkInfo().isConnectedOrConnecting();
     }
 
 }

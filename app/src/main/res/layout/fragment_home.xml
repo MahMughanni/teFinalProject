@@ -11,7 +11,7 @@
         android:orientation="vertical">
 
 
-        <ViewFlipper
+        <AdapterViewFlipper
             android:id="@+id/viewFlipper"
             android:layout_width="match_parent"
             android:layout_height="250dp"
@@ -19,17 +19,7 @@
             android:foregroundGravity="center"
             android:overScrollMode="ifContentScrolls">
 
-<!--            <TextView-->
-<!--                android:id="@+id/titleAds"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_gravity="bottom"-->
-<!--                android:padding="8dp"-->
-<!--                android:text="fadi hania"-->
-<!--                android:textColor="@android:color/black"-->
-<!--                android:textSize="18sp" />-->
-
-        </ViewFlipper>
+        </AdapterViewFlipper>
 
         <LinearLayout
             android:layout_width="match_parent"
