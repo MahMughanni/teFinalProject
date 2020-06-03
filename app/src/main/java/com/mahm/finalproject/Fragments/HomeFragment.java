@@ -19,10 +19,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterViewFlipper;
-import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.ViewFlipper;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -30,13 +27,11 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.mahm.finalproject.Activities.ActivityDetails_HomeFg;
-import com.mahm.finalproject.Activities.LoginActivity;
 import com.mahm.finalproject.Adapters.AdapterViewFlipperAdapter;
 import com.mahm.finalproject.Adapters.Custom_RvAdapter_HomeFg_News;
 import com.mahm.finalproject.Model.ActivitiesData;
 import com.mahm.finalproject.Model.AdsData;
 import com.mahm.finalproject.R;
-import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;

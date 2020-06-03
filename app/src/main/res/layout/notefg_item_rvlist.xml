@@ -11,14 +11,18 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
-        android:padding="10dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="10dp">
 
         <TextView
             android:id="@+id/noteItem_subTilte"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
+            android:textSize="16sp"
+            android:drawablePadding="8dp"
+            android:textStyle="bold"
+            android:drawableEnd="@drawable/ic_book"
             android:paddingLeft="8dp"
             android:paddingRight="8dp"
             android:text="Sub Name" />
@@ -27,8 +31,11 @@
             android:id="@+id/noteItem_studName"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:drawablePadding="8dp"
             android:layout_marginTop="8dp"
             android:layout_weight="1"
+            android:textSize="15sp"
+            android:drawableEnd="@drawable/ic_user"
             android:paddingLeft="8dp"
             android:paddingRight="8dp"
             android:text="Stud Name" />
@@ -38,7 +45,10 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginTop="8dp"
+            android:textSize="15sp"
             android:layout_weight="1"
+            android:drawablePadding="8dp"
+            android:drawableEnd="@drawable/ic_notes"
             android:paddingLeft="8dp"
             android:paddingRight="8dp"
             android:text="Note Title" />
@@ -47,8 +57,11 @@
             android:id="@+id/noteItem_description"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:drawablePadding="8dp"
+            android:textSize="15sp"
             android:layout_marginTop="8dp"
             android:layout_weight="1"
+            android:drawableEnd="@drawable/ic_document"
             android:paddingLeft="8dp"
             android:paddingRight="8dp"
             android:text="description" />

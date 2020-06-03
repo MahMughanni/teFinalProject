@@ -44,15 +44,13 @@ public class CustomAdapter_HomeFg_ViewPager extends PagerAdapter {
 
         View view = layoutInflater.inflate(R.layout.homefg_item_vp_cardview, container, false);
         ImageView img_vp;
-        TextView title, description;
+        TextView title;
 
         img_vp = view.findViewById(R.id.item_img_Vp);
         title = view.findViewById(R.id.item_Vp_tv_title);
-        description = view.findViewById(R.id.item_Vp_description);
 
 //        img_vp.set(data.get(position).getImg());
         title.setText(data.get(position).getTitle());
-        description.setText(data.get(position).getDescription());
 
         container.addView(view, 0);
 

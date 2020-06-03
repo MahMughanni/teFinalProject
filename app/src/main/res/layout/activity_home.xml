@@ -22,16 +22,12 @@
             android:layout_alignParentTop="true"
             android:background="@color/colorPrimary"
             android:elevation="4dp"
+            android:fitsSystemWindows="true"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
 
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_gravity="start|end"
-                android:layout_marginLeft="16dp"
-                android:src="@mipmap/ic_launcher_round" />
 
+            >
 
         </androidx.appcompat.widget.Toolbar>
 
@@ -41,6 +37,13 @@
             android:layout_height="match_parent"
             android:layout_above="@id/home_act_bottom_nav"
             android:layout_below="@id/homeAct_toolbar" />
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="7dp"
+            android:layout_below="@id/homeAct_toolbar"
+            android:background="@drawable/toolbar_dropshadow" />
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/home_act_bottom_nav"

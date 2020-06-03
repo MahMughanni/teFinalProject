@@ -16,6 +16,8 @@
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme">
 
+
+
         <TextView
             android:id="@+id/toolbar_title"
             android:layout_width="match_parent"
@@ -24,6 +26,10 @@
             android:text="Some Fancy Title"
             android:textColor="#FFFFFF"
             android:textSize="20sp" />
+
+        <View android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="@drawable/toolbar_dropshadow"/>
 
     </androidx.appcompat.widget.Toolbar>
 
@@ -43,6 +49,11 @@
                 android:layout_height="200dp"
                 android:scaleX="2"
                 android:src="@drawable/login_img0_family" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="#F3C0C4"/>
 
             <TextView
                 android:id="@+id/tvDescriptionDetails"

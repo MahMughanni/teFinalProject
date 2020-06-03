@@ -8,8 +8,8 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="160dp"
-        android:layout_margin="4dp"
-        app:cardCornerRadius="20dp">
+        android:layout_marginTop="6dp"
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -20,7 +20,7 @@
             <ImageView
                 android:id="@+id/item_img_Vp"
                 android:layout_width="110dp"
-                android:layout_height="150dp"
+                android:layout_height="130dp"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="8dp"
@@ -39,6 +39,7 @@
                     android:layout_margin="10dp"
                     android:layout_marginEnd="-118dp"
                     android:maxLines="1"
+                    android:textColor="#D93933"
                     android:text="العنوان الرئيسي"
                     android:textAlignment="center"
                     android:textAllCaps="false"
@@ -60,13 +61,15 @@
 
 
             </LinearLayout>
-
-
-
-
         </LinearLayout>
 
-
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:alpha=".7"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/toolbar_dropshadow" />
     </androidx.cardview.widget.CardView>
 
 
