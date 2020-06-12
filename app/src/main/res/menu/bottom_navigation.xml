@@ -4,26 +4,26 @@
     <item
         android:id="@+id/menu_btn_nav_home"
         android:icon="@drawable/ic_nav_home"
-        android:title="@string/btn_nav_ic_title_home" />
+        android:title="" />
     <item
         android:id="@+id/menu_btn_nav_notes"
         android:icon="@drawable/ic_nav_notes"
-        android:title="@string/btn_nav_ic_title_notes" />
+        android:title="" />
     <item
         android:id="@+id/menu_btn_nav_holidays"
         android:icon="@drawable/ic_calender"
-        android:title="@string/btn_nav_ic_title_Holidays" />
+        android:title="" />
 
     <item
         android:id="@+id/menu_btn_nav_travel"
         android:icon="@drawable/ic_nav_travel"
-        android:title="@string/btn_nav_ic_title_travel" />
+        android:title="" />
 
 
     <item
         android:id="@+id/menu_btn_nav_fin_record"
         android:icon="@drawable/ic_nav_money"
-        android:title="@string/btn_nav_ic_title_fin_record" />
+        android:title="" />
 
 
 </menu>

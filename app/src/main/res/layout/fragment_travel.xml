@@ -10,5 +10,13 @@
         android:layout_height="match_parent"
         android:id="@+id/travelFg_rv" />
 
+    <ProgressBar
+        android:id="@+id/progressBarTravelF"
+        style="?android:attr/progressBarStyle"
+        android:layout_gravity="center"
+        android:indeterminateTint="@color/colorPrimaryDark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
 
 </FrameLayout>

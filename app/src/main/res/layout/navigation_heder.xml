@@ -14,16 +14,18 @@
         android:src="@drawable/ic_login_user" />
 
     <TextView
+        android:id="@+id/tvNavigationStudentName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingTop="8dp"
         android:text="User Name"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
     <TextView
+        android:id="@+id/tvNavigationStudentPhoneNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="info@example.com"
-        />
+        android:text="info@example.com" />
 
 
 </LinearLayout>

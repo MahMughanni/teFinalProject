@@ -20,18 +20,11 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:layout_alignParentTop="true"
+            app:title="الرئيسية"
             android:background="@color/colorPrimary"
             android:elevation="4dp"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
-
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_gravity="start|end"
-                android:layout_marginLeft="16dp"
-                android:src="@mipmap/ic_launcher_round" />
-
 
         </androidx.appcompat.widget.Toolbar>
 
@@ -49,6 +42,7 @@
             android:layout_alignParentBottom="true"
             android:background="#F2F5F9"
             android:padding="@dimen/home_act_btnNav_icon_padding"
+            app:labelVisibilityMode="unlabeled"
             app:itemTextColor="#000"
             app:menu="@menu/bottom_navigation" />
 

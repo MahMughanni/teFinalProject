@@ -35,13 +35,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="10dp">
+            android:paddingBottom="10dp">
 
             <ImageView
                 android:id="@+id/imageDetails"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:scaleX="2"
+                android:scaleType="centerCrop"
                 android:src="@drawable/login_img0_family" />
 
             <TextView

@@ -21,7 +21,9 @@
                 android:id="@+id/calendarView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:headerColor="#04156D" />
+                app:eventsEnabled="true"
+                app:headerColor="#04156D"
+                app:type="one_day_picker" />
 
 
             <androidx.recyclerview.widget.RecyclerView

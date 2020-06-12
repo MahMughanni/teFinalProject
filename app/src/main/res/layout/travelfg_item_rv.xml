@@ -6,12 +6,25 @@
     android:layout_margin="16dp"
     app:cardCornerRadius="20dp">
 
+    <com.smarteist.autoimageslider.SliderView
+        android:id="@+id/travelFg_img_slider_Vp"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:visibility="gone"
+        app:sliderAnimationDuration="600"
+        app:sliderAutoCycleDirection="back_and_forth"
+        app:sliderIndicatorAnimationDuration="600"
+        app:sliderIndicatorGravity="center_horizontal|bottom"
+        app:sliderIndicatorOrientation="horizontal"
+        app:sliderIndicatorSelectedColor="#5A5A5A"
+        app:sliderIndicatorUnselectedColor="#FFF"
+        app:sliderScrollTimeInSec="1" />
 
     <ImageView
         android:id="@+id/travelFg_img"
         android:layout_width="match_parent"
         android:layout_height="180dp"
-        android:layout_marginTop="8dp"
+        android:scaleType="centerCrop"
         android:src="@drawable/test_img" />
 
     <TextView
@@ -20,12 +33,12 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:alpha=".8"
-        android:gravity="center"
-        android:textColor="#000"
         android:background="#E1DEDE"
         android:defaultFocusHighlightEnabled="true"
         android:fontFamily="@font/ge_ss_unique_light"
+        android:gravity="center"
         android:text="عنوان الرحلة ' تفصيل بسيط ' "
+        android:textColor="#000"
         android:textSize="20sp"
         android:textStyle="bold" />
 
