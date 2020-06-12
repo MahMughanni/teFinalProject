@@ -1,32 +1,45 @@
 package com.ucas.graduationproject.Fragments;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterViewFlipper;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ViewFlipper;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.smarteist.autoimageslider.IndicatorAnimations;
+import com.smarteist.autoimageslider.SliderAnimations;
+import com.smarteist.autoimageslider.SliderView;
+import com.squareup.picasso.Picasso;
 import com.ucas.graduationproject.Activities.ActivityDetails_HomeFg;
 import com.ucas.graduationproject.Adapters.Custom_RvAdapter_HomeFg_News;
 import com.ucas.graduationproject.Adapters.SliderAdapterHomeFragment;
 import com.ucas.graduationproject.Model.ActivitiesData;
 import com.ucas.graduationproject.Model.AdsData;
-import com.smarteist.autoimageslider.IndicatorAnimations;
-import com.smarteist.autoimageslider.IndicatorView.draw.controller.DrawController;
-import com.smarteist.autoimageslider.SliderAnimations;
-import com.smarteist.autoimageslider.SliderView;
 import com.ucas.graduationproject.R;
 
 import org.json.JSONArray;
@@ -38,24 +51,20 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 /**
  * A simple {@link Fragment} subclass.
  */
 public class HomeFragment extends Fragment {
 
     private View view;
-    private SliderAdapterHomeFragment sliderAdapter;
     private Custom_RvAdapter_HomeFg_News adapter;
     private ArrayList<ActivitiesData> data_activity;
+    private SliderAdapterHomeFragment sliderAdapter;
+    private RecyclerView recyclerView;
     private ProgressBar progressBarHomeF;
     private LinearLayout linearLayout;
-    private RecyclerView recyclerView;
-    public static final String url = "http://siteproject-001-site1.btempurl.com/api/activities";
     private SliderView sliderView;
+    public static final String url = "http://siteproject-001-site1.btempurl.com/api/activities";
 
 
     public HomeFragment() {
@@ -69,14 +78,6 @@ public class HomeFragment extends Fragment {
 
         view = LayoutInflater.from(getContext()).inflate(R.layout.fragment_home, container, false);
         init();
-
-        sliderView.setOnIndicatorClickListener(new DrawController.ClickListener() {
-            @Override
-            public void onIndicatorClicked(int position) {
-                sliderView.stopAutoCycle();
-            }
-        });
-
         if (!checkInternetConnected()) {
             Toast.makeText(getActivity(), "عذرا لا يوجد اتصال بالانترنت", Toast.LENGTH_LONG).show();
 
@@ -97,7 +98,6 @@ public class HomeFragment extends Fragment {
         progressBarHomeF = view.findViewById(R.id.progressBarHomeF);
         sliderView = view.findViewById(R.id.imageSlider);
 
-
     }
 
     void setupRecyclerView() {
@@ -114,6 +114,7 @@ public class HomeFragment extends Fragment {
         StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
+//                Toast.makeText(getActivity(), ""+response, Toast.LENGTH_SHORT).show();
                 data_activity = new ArrayList<>();
 
                 try {
@@ -122,11 +123,13 @@ public class HomeFragment extends Fragment {
 
                         JSONObject object = jsonArray.getJSONObject(i);
 
-                        String title = object.getString("activitieName");
-                        String Description = object.getString("description");
-                        String img = object.getString("actPathImage");
+                        ActivitiesData data = new ActivitiesData();
 
-                        data_activity.add(new ActivitiesData(title, Description, img));
+                        data.setTitle(object.getString("activitieName"));
+                        data.setDescription(object.getString("description"));
+                        data.setImg(object.getString("actPathImage"));
+
+                        data_activity.add(data);
                     }
 
                     progressBarHomeF.setVisibility(View.GONE);
@@ -178,6 +181,7 @@ public class HomeFragment extends Fragment {
 
                         JSONObject object = array.getJSONObject(i);
 
+                        int adsId = object.getInt("adId");
                         String adsTitle = object.getString("adTitle");
                         String adsImage = object.getString("adPathImage");
 
@@ -198,7 +202,6 @@ public class HomeFragment extends Fragment {
                     sliderView.setScrollTimeInSec(4);
                     sliderView.setAutoCycle(true);
                     sliderView.startAutoCycle();
-
 
                 } catch (JSONException e) {
                     e.printStackTrace();

@@ -30,7 +30,8 @@
                     android:layout_height="40dp"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:background="@drawable/shape_circle" />
+                    android:background="@drawable/shape_circle"
+                    android:visibility="invisible" />
 
                 <TextView
                     android:id="@+id/finanical_detail"
@@ -145,6 +146,7 @@
                     android:textSize="14sp" />
 
             </LinearLayout>
+
 
         </LinearLayout>
 

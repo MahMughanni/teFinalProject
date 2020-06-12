@@ -33,12 +33,12 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:alpha=".8"
+        android:gravity="center"
+        android:textColor="#000"
         android:background="#E1DEDE"
         android:defaultFocusHighlightEnabled="true"
         android:fontFamily="@font/ge_ss_unique_light"
-        android:gravity="center"
         android:text="عنوان الرحلة ' تفصيل بسيط ' "
-        android:textColor="#000"
         android:textSize="20sp"
         android:textStyle="bold" />
 

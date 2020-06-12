@@ -16,6 +16,7 @@
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme">
 
+
         <TextView
             android:id="@+id/toolbar_title"
             android:layout_width="match_parent"
@@ -24,6 +25,11 @@
             android:text="Some Fancy Title"
             android:textColor="#FFFFFF"
             android:textSize="20sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="@drawable/toolbar_dropshadow" />
 
     </androidx.appcompat.widget.Toolbar>
 
@@ -37,12 +43,31 @@
             android:orientation="vertical"
             android:paddingBottom="10dp">
 
+            <com.smarteist.autoimageslider.SliderView
+                android:id="@+id/sliderDetails"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:visibility="gone"
+                app:sliderAnimationDuration="600"
+                app:sliderAutoCycleDirection="back_and_forth"
+                app:sliderIndicatorAnimationDuration="600"
+                app:sliderIndicatorGravity="center_horizontal|bottom"
+                app:sliderIndicatorOrientation="horizontal"
+                app:sliderIndicatorSelectedColor="#5A5A5A"
+                app:sliderIndicatorUnselectedColor="#FFF"
+                app:sliderScrollTimeInSec="1" />
+
             <ImageView
                 android:id="@+id/imageDetails"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/login_img0_family" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="#F3C0C4" />
 
             <TextView
                 android:id="@+id/tvDescriptionDetails"

@@ -20,18 +20,24 @@
         <activity
             android:name=".Activities.SplashActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
         <activity
             android:name=".Activities.LoginActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity android:name=".Activities.SettingActivity" />
         <activity android:name=".Activities.AboutUsActivity" />
-        <activity android:name=".Activities.HomeActivity" />
+        <activity android:name=".Activities.HomeActivity" >
+
+
+        </activity>
+
         <activity
             android:name=".Activities.ActivityDetails_HomeFg"
             android:theme="@style/AppTheme.NoActionBar" />
