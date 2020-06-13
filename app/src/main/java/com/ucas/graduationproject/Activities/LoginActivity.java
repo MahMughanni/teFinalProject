@@ -1,10 +1,14 @@
 package com.ucas.graduationproject.Activities;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.net.ConnectivityManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -37,6 +41,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     public static final String STUDENT_DOF = "studentDateOfBirth";
     public static final String STUDENT_PHONE = "studentPhone";
     private ProgressDialog progressDialog;
+    private AlertDialog dialog;
 
     private String url = "http://siteproject-001-site1.btempurl.com/api/student";
 
@@ -82,13 +87,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     }
 
                 } else {
-                    Toast.makeText(this, "ID Number or Password Is Empty", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "الرجاء ملئ الحقول الفارغة", Toast.LENGTH_SHORT).show();
                 }
 
                 break;
 
             case R.id.login_act_tv_forget_pass:
-                startActivity(new Intent(getBaseContext(), ResetPasswordActivity.class));
+                showDialog();
                 break;
 
         }
@@ -152,5 +157,34 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private boolean checkInternetConnected() {
         ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         return connectivityManager.getActiveNetworkInfo() != null && connectivityManager.getActiveNetworkInfo().isConnectedOrConnecting();
+    }
+
+    private void showDialog() {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
+        builder.setTitle("ادارة الروضة");
+        builder.setMessage("يجب التواصل مع فريق الدعم الفني لاستراجاع كلمة المرور الخاصة بك");
+        builder.setCancelable(false);
+
+        builder.setPositiveButton("اتصال بالفريق", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Intent callIntent = new Intent();
+                callIntent.setAction(Intent.ACTION_DIAL);
+                Uri uri = Uri.parse("tel: " + "0592301617");
+                callIntent.setData(uri);
+                startActivity(callIntent);
+            }
+        });
+
+        builder.setNegativeButton("اخفاء", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+
+        dialog = builder.create();
+        dialog.show();
     }
 }

@@ -43,7 +43,6 @@
                 android:drawableStart="@drawable/ic_card"
                 android:drawablePadding="8dp"
                 android:hint="@string/_login_activity_ed_hint_idNum"
-                android:fontFamily="@font/raleway_regular"
                 android:inputType="number"
                 android:paddingLeft="16dp"
                 android:paddingRight="16dp"

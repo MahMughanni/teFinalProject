@@ -20,6 +20,7 @@ import android.widget.Toast;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.ucas.graduationproject.Activities.LoginActivity;
@@ -91,11 +92,13 @@ public class FinancialFragment extends Fragment {
                         int financialId = object1.getInt("financialRecordId");
                         int payNum = object1.getInt("payNum");
                         String dateOfPay = object1.getString("dateFoPay");
-
                         String dateAfterCut = dateOfPay.substring(0, 10);
 
+                        JSONObject object2 = object1.getJSONObject("semester");
+                        String semesterName = object2.getString("season");
+
                         if (studentId == currentStudentId) {
-                            data.add(new FinancialData(payNum, dateAfterCut, financialId));
+                            data.add(new FinancialData(payNum, dateAfterCut, semesterName, financialId));
                         }
                     }
 

@@ -3,12 +3,13 @@ package com.ucas.graduationproject.Model;
 public class FinancialData {
 
     private double Creditor;
-    private String Date;
+    private String Date, semesterName;
     private double totalBill;
 
-    public FinancialData(double creditor, String date, double totalBill) {
+    public FinancialData(double creditor, String date, String semesterName, double totalBill) {
         Creditor = creditor;
         Date = date;
+        this.semesterName = semesterName;
         this.totalBill = totalBill;
     }
 
@@ -34,5 +35,13 @@ public class FinancialData {
 
     public void setTotalBill(double totalBill) {
         this.totalBill = totalBill;
+    }
+
+    public String getSemesterName() {
+        return semesterName;
+    }
+
+    public void setSemesterName(String semesterName) {
+        this.semesterName = semesterName;
     }
 }

@@ -1,16 +1,12 @@
 package com.ucas.graduationproject.Fragments;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -18,13 +14,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterViewFlipper;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.ViewFlipper;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -34,7 +26,6 @@ import com.android.volley.toolbox.Volley;
 import com.smarteist.autoimageslider.IndicatorAnimations;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
-import com.squareup.picasso.Picasso;
 import com.ucas.graduationproject.Activities.ActivityDetails_HomeFg;
 import com.ucas.graduationproject.Adapters.Custom_RvAdapter_HomeFg_News;
 import com.ucas.graduationproject.Adapters.SliderAdapterHomeFragment;
@@ -114,7 +105,7 @@ public class HomeFragment extends Fragment {
         StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-//                Toast.makeText(getActivity(), ""+response, Toast.LENGTH_SHORT).show();
+
                 data_activity = new ArrayList<>();
 
                 try {
@@ -181,7 +172,6 @@ public class HomeFragment extends Fragment {
 
                         JSONObject object = array.getJSONObject(i);
 
-                        int adsId = object.getInt("adId");
                         String adsTitle = object.getString("adTitle");
                         String adsImage = object.getString("adPathImage");
 
