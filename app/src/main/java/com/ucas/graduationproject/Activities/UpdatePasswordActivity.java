@@ -1,5 +1,6 @@
 package com.ucas.graduationproject.Activities;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
@@ -14,7 +15,6 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.Volley;
-
 import com.ucas.graduationproject.Model.BooleanRequest;
 import com.ucas.graduationproject.R;
 
@@ -22,6 +22,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 public class UpdatePasswordActivity extends AppCompatActivity {
 
@@ -30,16 +31,22 @@ public class UpdatePasswordActivity extends AppCompatActivity {
     private EditText mEtConfirmNewPassword;
     private Button mBtnOkNewPassword;
     private String url = "http://siteproject-001-site1.btempurl.com/api/student";
+    private Toolbar mToolbarUpdatePassword;
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_password);
 
+        mToolbarUpdatePassword = findViewById(R.id.toolbarUpdatePassword);
         mEtOldPassword = findViewById(R.id.etOldPassword);
         mEtNewPassword = findViewById(R.id.etNewPassword);
         mEtConfirmNewPassword = findViewById(R.id.etConfirmNewPassword);
         mBtnOkNewPassword = findViewById(R.id.btnOkNewPassword);
+
+        setSupportActionBar(mToolbarUpdatePassword);
+        progressDialog = new ProgressDialog(this);
 
         SharedPreferences sp = getSharedPreferences(LoginActivity.USERS_SHARED, Context.MODE_PRIVATE);
 
@@ -53,6 +60,7 @@ public class UpdatePasswordActivity extends AppCompatActivity {
                 String confirmNewPass = mEtConfirmNewPassword.getText().toString().trim();
 
                 if (!checkInternetConnected()) {
+                    progressDialog.dismiss();
                     Toast.makeText(UpdatePasswordActivity.this, "عذرا لا يوجد اتصال بالانترنت", Toast.LENGTH_LONG).show();
                 }
 
@@ -73,10 +81,21 @@ public class UpdatePasswordActivity extends AppCompatActivity {
             }
         });
 
+        mToolbarUpdatePassword.setNavigationIcon(R.drawable.ic_back);
+
+        mToolbarUpdatePassword.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
 
     }
 
     private void changePassword(int studentId, String oldPass, String newPass, String confirmNewPass) {
+        progressDialog.setMessage("جاري تغيير كلمة المرور...");
+        progressDialog.show();
 
         try {
             JSONObject jsonBody;
@@ -90,6 +109,7 @@ public class UpdatePasswordActivity extends AppCompatActivity {
                 @Override
                 public void onResponse(Boolean response) {
                     Toast.makeText(UpdatePasswordActivity.this, "تم تغيير كلمة المرور", Toast.LENGTH_SHORT).show();
+                    progressDialog.dismiss();
                     finish();
                 }
             }, new Response.ErrorListener() {
@@ -98,6 +118,7 @@ public class UpdatePasswordActivity extends AppCompatActivity {
                     Log.e("UpdatePasswordActivity", error.getMessage() + "");
                     if (error.getMessage() == null) {
                         Toast.makeText(UpdatePasswordActivity.this, "كلمة المرور القديمة خاطئة", Toast.LENGTH_LONG).show();
+                        progressDialog.dismiss();
                     }
                 }
             });

@@ -4,21 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layoutDirection="ltr"
     android:orientation="vertical"
     tools:context=".Activities.UpdatePhoneNumberActivity">
 
-
-    <TextView
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarUpdatePhone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#fff"
-        android:fontFamily="@font/stc"
-        android:padding="16dp"
-        android:text="تغيير رقم الهاتف"
-        android:textAlignment="center"
-        android:textColor="#000"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:title="تغيير رقم الهاتف" />
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -32,8 +30,9 @@
         android:layout_marginTop="8dp"
         android:background="#fff"
         android:fontFamily="@font/stc"
+        android:gravity="right"
         android:hint="رقم الهاتف الجديد"
-        android:inputType="number"
+        android:inputType="phone"
         android:padding="16dp"
         android:textColor="#000"
         android:textColorHint="#000"
@@ -46,8 +45,8 @@
         android:layout_marginTop="8dp"
         android:background="#fff"
         android:fontFamily="@font/stc"
-        android:hint="كلمة المرور"
         android:gravity="right"
+        android:hint="كلمة المرور"
         android:inputType="textPassword"
         android:padding="16dp"
         android:textColor="#000"

@@ -4,12 +4,14 @@ public class FinancialData {
 
     private double Creditor;
     private String Date, semesterName;
+    private double pay;
     private double totalBill;
 
-    public FinancialData(double creditor, String date, String semesterName, double totalBill) {
+    public FinancialData(double creditor, String date, String semesterName, double pay, double totalBill) {
         Creditor = creditor;
         Date = date;
         this.semesterName = semesterName;
+        this.pay = pay;
         this.totalBill = totalBill;
     }
 
@@ -43,5 +45,13 @@ public class FinancialData {
 
     public void setSemesterName(String semesterName) {
         this.semesterName = semesterName;
+    }
+
+    public double getPay() {
+        return pay;
+    }
+
+    public void setPay(double pay) {
+        this.pay = pay;
     }
 }

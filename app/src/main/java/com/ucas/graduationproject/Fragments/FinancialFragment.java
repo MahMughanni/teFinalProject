@@ -5,22 +5,18 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.ucas.graduationproject.Activities.LoginActivity;
@@ -35,6 +31,10 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.Objects;
 
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 /**
  * A simple {@link Fragment} subclass.
  */
@@ -46,11 +46,12 @@ public class FinancialFragment extends Fragment {
     private FinancialAdapter adapter;
     private String url = "http://siteproject-001-site1.btempurl.com/api/financialrecords";
     private int currentStudentId;
+    private TextView mTotalFinancial;
+    private LinearLayout mLinearLayout;
 
     public FinancialFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -59,6 +60,8 @@ public class FinancialFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_financial, container, false);
         rv = v.findViewById(R.id.rvFinancialFragment);
         progressBarFinancialF = v.findViewById(R.id.progressBarFinancialF);
+        mLinearLayout = v.findViewById(R.id.LinearLayout);
+        mTotalFinancial = v.findViewById(R.id.Total_financial);
         progressBarFinancialF.setVisibility(View.VISIBLE);
 
         SharedPreferences sp = Objects.requireNonNull(getActivity()).getSharedPreferences(LoginActivity.USERS_SHARED, Context.MODE_PRIVATE);
@@ -66,6 +69,7 @@ public class FinancialFragment extends Fragment {
         currentStudentId = sp.getInt(LoginActivity.STUDENT_ID, 0);
 
         if (!checkInternetConnected()) {
+            progressBarFinancialF.setVisibility(View.GONE);
             Toast.makeText(getActivity(), "عذرا لا يوجد اتصال بالانترنت", Toast.LENGTH_LONG).show();
 
         } else {
@@ -76,6 +80,7 @@ public class FinancialFragment extends Fragment {
     }
 
     private void loadFinancialRecords() {
+        ArrayList<Integer> arrayList = new ArrayList<>();
 
         StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
@@ -98,8 +103,17 @@ public class FinancialFragment extends Fragment {
                         String semesterName = object2.getString("season");
 
                         if (studentId == currentStudentId) {
-                            data.add(new FinancialData(payNum, dateAfterCut, semesterName, financialId));
+                            data.add(new FinancialData(payNum, dateAfterCut, semesterName, financialId, 0));
+                            arrayList.add(payNum);
                         }
+                    }
+
+                    mLinearLayout.setVisibility(View.VISIBLE);
+                    int sum = 0;
+                    for (int i = 0; i < arrayList.size(); i++) {
+                        sum += arrayList.get(i);
+
+                        mTotalFinancial.setText(sum + "");
                     }
 
                     progressBarFinancialF.setVisibility(View.GONE);

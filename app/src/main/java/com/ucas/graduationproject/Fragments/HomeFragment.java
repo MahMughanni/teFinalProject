@@ -70,6 +70,7 @@ public class HomeFragment extends Fragment {
         view = LayoutInflater.from(getContext()).inflate(R.layout.fragment_home, container, false);
         init();
         if (!checkInternetConnected()) {
+            progressBarHomeF.setVisibility(View.GONE);
             Toast.makeText(getActivity(), "عذرا لا يوجد اتصال بالانترنت", Toast.LENGTH_LONG).show();
 
         } else {

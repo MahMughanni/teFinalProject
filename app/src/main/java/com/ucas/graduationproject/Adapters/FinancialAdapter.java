@@ -38,9 +38,12 @@ public class FinancialAdapter extends RecyclerView.Adapter<FinancialAdapter.Fina
         String replace = data1.getDate().replaceAll("-", "/");
 
         holder.tvCreditor.setText(data1.getCreditor() + "");
-        holder.tvTotalBill.setText((int) data1.getTotalBill() + "");
+        holder.tvPay.setText((int) data1.getPay() + "");
         holder.tvDate.setText(replace);
         holder.finanical_detail.setText(data1.getSemesterName());
+
+//        holder.tvTotalBill.setText(data1.getTotalBill() + "");
+
     }
 
     @Override
@@ -50,15 +53,16 @@ public class FinancialAdapter extends RecyclerView.Adapter<FinancialAdapter.Fina
 
     class FinancialHolder extends RecyclerView.ViewHolder {
 
-        TextView tvCreditor, tvDate, tvTotalBill, finanical_detail;
+        TextView tvCreditor, tvDate, tvPay, finanical_detail, tvTotalBill;
 
         public FinancialHolder(@NonNull View itemView) {
             super(itemView);
 
             tvCreditor = itemView.findViewById(R.id.credit_financial);
-            tvTotalBill = itemView.findViewById(R.id.record_financial);
+            tvPay = itemView.findViewById(R.id.record_financial);
             tvDate = itemView.findViewById(R.id.date_financial);
             finanical_detail = itemView.findViewById(R.id.finanical_detail);
+//            tvTotalBill = itemView.findViewById(R.id.Total_financial);
 
         }
     }

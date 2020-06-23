@@ -33,7 +33,7 @@
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity android:name=".Activities.SettingActivity" />
         <activity android:name=".Activities.AboutUsActivity" />
-        <activity android:name=".Activities.HomeActivity" >
+        <activity android:name=".Activities.HomeActivity">
 
 
         </activity>

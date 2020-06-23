@@ -8,18 +8,17 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.ucas.graduationproject.R;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 public class SettingActivity extends AppCompatActivity {
 
 
-    private Switch mSwitch1;
-    private TextView mSettingFgTvNotif;
     private TextView mSettingFgTvChangePassword;
     private TextView mSettingFgTvChangePhnoeNumber;
-
+    private Toolbar mToolbarSettings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,14 +27,8 @@ public class SettingActivity extends AppCompatActivity {
 
         init();
 
+        setSupportActionBar(mToolbarSettings);
 
-        mSettingFgTvNotif.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Toast.makeText(getApplication(), "تفعيل  الاشعارات ", Toast.LENGTH_SHORT).show();
-            }
-        });
 
         mSettingFgTvChangePassword.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,11 +44,19 @@ public class SettingActivity extends AppCompatActivity {
             }
         });
 
+        mToolbarSettings.setNavigationIcon(R.drawable.ic_back);
+
+        mToolbarSettings.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
     }
 
     void init() {
-        mSwitch1 = findViewById(R.id.switch1);
-        mSettingFgTvNotif = findViewById(R.id.settingFg_tv_Notif);
+        mToolbarSettings = findViewById(R.id.toolbarSettings);
         mSettingFgTvChangePassword = findViewById(R.id.settingFg_tv_ChangePassword);
         mSettingFgTvChangePhnoeNumber = findViewById(R.id.settingFg_tv_ChangePhnoe_Number);
 

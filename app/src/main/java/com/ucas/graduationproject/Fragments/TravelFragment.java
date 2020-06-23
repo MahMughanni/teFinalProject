@@ -50,7 +50,9 @@ public class TravelFragment extends Fragment {
         mTravelFgRv = view.findViewById(R.id.travelFg_rv);
         progressBarTravelF = view.findViewById(R.id.progressBarTravelF);
         progressBarTravelF.setVisibility(View.VISIBLE);
+
         if (!checkInternetConnected()) {
+            progressBarTravelF.setVisibility(View.GONE);
             Toast.makeText(getActivity(), "عذرا لا يوجد اتصال بالانترنت", Toast.LENGTH_LONG).show();
 
         } else {

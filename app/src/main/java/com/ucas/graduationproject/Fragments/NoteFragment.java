@@ -65,6 +65,7 @@ public class NoteFragment extends Fragment {
         progressBarNotesF.setVisibility(View.VISIBLE);
         
         if (!checkInternetConnected()) {
+            progressBarNotesF.setVisibility(View.GONE);
             Toast.makeText(getActivity(), "عذرا لا يوجد اتصال بالانترنت", Toast.LENGTH_LONG).show();
 
         } else {

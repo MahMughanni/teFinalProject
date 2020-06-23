@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layoutDirection="ltr"
     tools:context=".Activities.SettingActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -11,53 +12,35 @@
         android:layout_height="match_parent"
         android:background="#EFF0F1">
 
-
-        <Switch
-            android:id="@+id/switch1"
-            android:layout_width="wrap_content"
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarSettings"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="30dp"
-            android:visibility="gone"
-            android:layout_marginTop="32dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/settingFg_tv_Notif"
-            android:layout_width="200dp"
-            android:layout_height="36dp"
-            android:layout_marginTop="32dp"
-            android:fontFamily="@font/stc"
-            android:gravity="center"
-            android:textStyle="bold"
-            android:text="تفعيل الاشعارات"
-            android:textColor="#000"
-            android:visibility="gone"
-            android:textSize="18sp"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/switch1"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:title="الاعدادات" />
 
 
         <ImageView
             android:id="@+id/img"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_below="@id/switch1"
+            android:layout_below="@id/toolbarSettings"
             android:layout_marginStart="32dp"
             android:layout_marginTop="36dp"
             android:src="@drawable/ic_btn_lock"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/switch1" />
+            app:layout_constraintTop_toBottomOf="@+id/toolbarSettings" />
 
         <TextView
-
             android:id="@+id/settingFg_tv_ChangePassword"
             android:layout_width="200dp"
             android:layout_height="36dp"
-            android:layout_below="@id/settingFg_tv_Notif"
+            android:layout_below="@id/toolbarSettings"
             android:layout_marginTop="32dp"
             android:fontFamily="@font/stc"
             android:gravity="center"
@@ -68,15 +51,15 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.625"
             app:layout_constraintStart_toEndOf="@+id/img"
-            app:layout_constraintTop_toBottomOf="@+id/settingFg_tv_Notif" />
+            app:layout_constraintTop_toBottomOf="@+id/toolbarSettings" />
 
         <ImageView
             android:id="@+id/img2"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_below="@id/switch1"
+            android:layout_below="@id/toolbarSettings"
             android:layout_marginStart="32dp"
-            android:layout_marginTop="44dp"
+            android:layout_marginTop="36dp"
             android:src="@drawable/ic_multimedia"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/img" />
@@ -85,8 +68,8 @@
             android:id="@+id/settingFg_tv_ChangePhnoe_Number"
             android:layout_width="200dp"
             android:layout_height="36dp"
-            android:layout_below="@id/settingFg_tv_Notif"
-            android:layout_marginTop="36dp"
+            android:layout_below="@id/toolbarSettings"
+            android:layout_marginTop="45dp"
             android:fontFamily="@font/stc"
             android:gravity="center"
             android:text="تغير رقم الهاتف"

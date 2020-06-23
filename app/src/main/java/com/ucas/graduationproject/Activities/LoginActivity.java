@@ -79,7 +79,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 if (!idNumber.isEmpty() && !password.isEmpty()) {
 
                     if (!checkInternetConnected()) {
+                        progressDialog.dismiss();
                         Toast.makeText(LoginActivity.this, "عذرا لا يوجد اتصال بالانترنت", Toast.LENGTH_LONG).show();
+
                     } else {
                         progressDialog.setMessage("جاري تسجيل الدخول...");
                         progressDialog.show();
