@@ -10,7 +10,7 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="380dp"
+        android:layout_width="390dp"
         android:layout_height="320dp"
         android:layout_marginBottom="140dp"
         android:src="@drawable/splash_img"
